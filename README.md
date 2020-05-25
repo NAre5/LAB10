@@ -10,16 +10,15 @@
 1. להוריד את כלי הפיתוח עבור vue בתוך הדפדפן:
    * [עבור הדפדפן של Chrome](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
    * [עבור הדפדפן של Firefox](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-2. לייבא את הקוד מ[github](***ENTER_URL***)
+2. לייבא את הקוד [מgithub]()
 3. להוריד את התוספים הבאים לvscode:
    * Markdown Preview Enhanced
    * Live Server
 4. לפתוח את [הדוקומנטציה של Vue](https://vuejs.org/v2/guide/)
 
 
-<!-- ## מבוא
+## מטרה
 
-בנתיים ריק*** -->
 
 
 ## צורת הייבוא של Vue
@@ -33,7 +32,8 @@
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 ```
 </div>
-אפשר לראות שזה דומה לצורה בא ייבאנו את ספריית JQuery ש Vue באה להחליף.
+
+> אפשר לראות שזה דומה לצורה בא ייבאנו את ספריית JQuery ש Vue באה להחליף.
 
 ## אפליקציית Vue
 
@@ -98,10 +98,13 @@ data() {
 
 כאשר אובייקט Vue נוצר, הוא מוסיף את כל הפרמטרים שנמצאים באובייקט data אל המערכת הריאקטיבית של Vue. כאשר הערכים של אותם פרמטרים משתנים התצוגה תגיב, ותתעדכן לפי הערכים החדשים
 
-תצוגה של אותם ערכים ניתמת באמצעות שימוש בסוגריים מסולסלים ובתוכם הפרמטר:
+אחת האפשרויות לתצוגה של אותם ערכים ניתנת באמצעות שימוש בסוגריים מסולסלים ובתוכם הפרמטר:
 ```
 {{ message }}
 ```
+
+<span style="color:green;">מתי נשתמש --> כאשר נגדיר משתנים שיחזיקו לנו את השם משתמש והסיסמא בform</span>
+
 
 [קישור לדוגמאת הקוד השנייה](codes/3_vue_object_properties.html)
 
@@ -128,7 +131,7 @@ this.plus();
 ```
 </div>
 
-הפנייה לפונקציה מתוך התצוגה תעשה בצורה הבאה על ידי directive בשם v-on:
+הפנייה לפונקציה מתוך התצוגה תעשה בצורה הבאה על ידי directive בשם [v-on](#v-on):
 
 <div id="new" dir="ltr">
 
@@ -137,11 +140,67 @@ this.plus();
 ```
 </div>
 
+<span style="color:green;">מתי נשתמש --> כאשר נגדיר פעולה שתרוץ כאשר נלחץ על כפתור submit בform</span>
+
+
 - ### computed
 
-כל מני מילים על 
+בדומה ל#c שבו אנחנו יכולים ליצור property שייצר לנו משתנה שלו מוגזר getter ו setter - 
 
-<!-- <img src="./lifecycle.png"> -->
+<div id="new" dir="ltr">
+
+```javascript
+class Person
+{
+  //Data members:
+  private string firstName;
+
+  //Properties:
+  public string FirstName
+  {
+    get { return firstName; }
+    set { firstName = value; }
+  }
+}
+```
+</div>
+
+אנחנו יכולים ליצור משתנים כמו בdata אבל עם getter ו setter.
+**הדיפולט הוא משתנה שמאפשר רק get כמו עבור upperCase_message**
+
+<div dir="ltr">
+
+```javascript
+computed: {
+  upperCase_message: function(){
+    return this.message.toUpperCase();
+  }
+}
+```
+</div>
+
+[קישור להרחבה עבור משתנה עם setter](#computed_with_setter)
+
+כל המשתנים שהגדרנו בתוך computed נוספים לתוך האובייקט, והפנייה אליהם בתוך הקוד היא דרך הפוינטר this.
+
+אחת האפשרויות לתצוגה של אותם ערכים ניתנת באמצעות שימוש בסוגריים מסולסלים ובתוכם הפרמטר:
+```
+{{ upperCase_message }}
+```
+
+<span style="color:green;">מתי נשתמש --> ##########ENTER_ANSWER_HERE###########</span>
+
+- ### created (and) beforeDestroy
+  במחזור החיים של אובייקט Vue, ישנם שני eventים שמעניינים אותנו:
+> * **created:** מסמל את הרגע בו האובייקט נוצר ואנחנו יכולים להריץ קוד
+  <span style="color:green;">מתי נשתמש -- שליחת בקשה לשרת והשמת התוצאה למשתנה של האובייקט ברגע שהיא חוזרת</span>
+  
+
+> * **beforeDestroy:** מסמל את הרגע לפני שהאובייקט נהרס ומאפשר לנו להריץ קוד
+  <span style="color:green;">מתי נשתמש -- ניקוי נתונים שאנחנו לא צריכים מהזיכרון</span>
+
+[link to life cycle image](#lifecycle)
+
 
 ## directives
 
@@ -156,7 +215,7 @@ this.plus();
 היום במעבדה נדבר על directives מפורסמים שגם נעשה בהם שימוש במעבדה.
 > אני ממליץ לכם לקרוא על עוד directives ולהעשיר את הידע.
 
-- ### v-on
+- ### <div id="v-on">v-on</div>
 
 כל מני מילים כל v-on
 
@@ -176,5 +235,44 @@ this.plus();
 
 כל מני מילים על v-for
 
+&nbsp;
+&nbsp;
 
+---
 
+## נספחים
+
+- ### <div id="computed_with_setter">computed with setter</div>
+
+<div dir="ltr">
+
+```javascript
+computed: {
+  fullName: {
+    // getter
+    get: function () {
+      return this.firstName + ' ' + this.lastName
+    },
+    // setter
+    set: function (newValue) {
+      var names = newValue.split(' ')
+      this.firstName = names[0]
+      this.lastName = names[names.length - 1]
+    }
+  }
+}
+```
+</div>
+
+עבור fullName, שכאשר נריץ:
+<div dir="ltr">
+
+```javascript
+this.fullName = 'John Doe'
+``` 
+</div>
+firstName ו lastName יתעדכנו ב John ו Doe בהתאמה
+
+- ### <div id="lifecycle">lifecycle image</div>
+
+<img src="./lifecycle.png">

@@ -8,6 +8,7 @@
     <div id="app">
       <div>{{ message }}</div>
       <button v-on:click="plus">plus button</button>
+      <div>{{ upperCase_message }}</div>
     </div>
 
     <script>
@@ -22,6 +23,11 @@
           plus: function () {
             this.message += " and ";
             console.log(message);
+          }
+        },
+        computed: {
+          upperCase_message: function(){
+            return this.message.toUpperCase();
           }
         },
         mounted() {

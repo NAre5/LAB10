@@ -17,7 +17,9 @@
 
 ## מטרה
 
-**המטרה שלנו בסוף התרגול זה לייצר עמוד Register ועמוד Login (כרגע נפרדים)**
+**המטרה שלכם בסוף התרגול זה לייצר עמוד Register ועמוד Login (כרגע נפרדים).**
+
+**הקבצים האלה הם הקבצים [register.html](task/register.html) ו [login.html](task/login.html) (שכרגע ריקים).**
 
 ## צורת הייבוא של Vue
 
@@ -42,10 +44,10 @@
 
 ```javascript
 new Vue({
-  // options
-  el: "#app",// query selector
-  data: ,
-  methods: ,
+// options
+  el: "#app",// selector for template
+  // data: ,
+  // methods: ,
   // ... ,
 })
 ```
@@ -71,7 +73,39 @@ Root Instance
 
 </div>
 
-> **<span style="color:green;">מתי נשתמש --> בכל קובץ ניצור אובייקט Vue שיכיל את כל המידע שאנחנו צריכים ובTemplate נייצר form שיקבל מהמשתמש את המידע הנחוץ</span>**
+דוגמא לקובץ HTML שבו משולב אובייקט Vue:
+
+<div dir="ltr" style="padding-left:15%;">
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My first Vue app</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+
+  <body>
+    <div id="app"> <!-- The template -->
+      hello world vue
+    </div>
+
+    <script>
+      var app = new Vue({ // The Vue instance
+        el: "#app",
+      });
+    </script>
+  </body>
+</html>
+```
+
+</div>
+
+## <span style="color:green;"> <-- משימה 1 --> </span>
+**בכל קובץ יש ליצור:**
+1. **תג שיכיל את הTemplate של האובייקט (שבו בעתיד ניצור form שיקבל מהמשתמש את המידע הנחוץ)**
+2. **אובייקט Vue (שיכיל את הלוגיקה של הטופס)**
+
 
 **[קישור לדוגמאת הקוד הראשונה](codes/2_hello_world_vue.html)**
 
@@ -109,13 +143,15 @@ data() {
 
 </div>
 
-> **<span style="color:green;">מתי נשתמש --> כאשר נגדיר משתנים שיחזיקו לנו את השם משתמש והסיסמא בform</span>**
+## <span id="משימה2" style="color:green;"> <-- משימה 2 --> </span>
+**בכל קובץ יש להגדיר משתנים שיחזיקו לנו את קלטי המשתמש של הform (כמו שם המשתמש והסיסמא)**
+
 
 **[קישור לדוגמאת הקוד השנייה](codes/3_vue_object_properties.html)**
 
 - ## methods
 
-<div id="new" dir="ltr" style="padding-left:15%;">
+<div dir="ltr" style="padding-left:15%;">
 
 ```javascript
 methods: {
@@ -130,7 +166,7 @@ methods: {
 
 כל הפונקציות שבתוך methods נוספים כפונקציות של האובייקט, והפנייה אליהם בתוך האובייקט היא דרך הפוינטר this.
 
-<div id="new" dir="ltr" style="padding-left:15%;">
+<div dir="ltr" style="padding-left:15%;">
 
 ```javascript
 this.plus();
@@ -140,7 +176,7 @@ this.plus();
 
 הפנייה לפונקציה מתוך התצוגה תעשה בצורה הבאה על ידי directive בשם [v-on](#v-on):
 
-<div id="new" dir="ltr" style="padding-left:15%;">
+<div dir="ltr" style="padding-left:15%;">
 
 ```html
 <button v-on:click="plus">plus button</button>
@@ -148,17 +184,22 @@ this.plus();
 
 </div>
 
-> **<span style="color:green;">מתי נשתמש --> כאשר נגדיר פעולה שתרוץ כאשר נלחץ על כפתור submit בform</span>**
+## <span style="color:green;"> <-- משימה 3 --> </span>
+**בכל קובץ יש ליצור:**
+1. **תג form ובו תג input מסוג <input type="submit" value="Submit">**
+2. **פונקציה בתוך הפרמטר methods שתקרא בעת לחיצה על הכפתור**
 
-**[קישור לדוגמאת הקוד השנייה - יש להוציא מההערה את הפרמטר methods ואת הכפתור](codes/3_vue_object_properties.html)**
+
+**[קישור לדוגמאת הקוד השנייה](codes/3_vue_object_properties.html)**
 
 - ## computed
 
-בדומה ל#c שבו אנחנו יכולים ליצור property שייצר לנו משתנה שלו מוגזר getter ו setter -
+בדומה ל#c שבו אנחנו יכולים ליצור property שייצר לנו משתנה שלו מוגזר getter ו setter:
 
-<div id="new" dir="ltr" style="padding-left:15%;">
+<div dir="ltr" style="padding-left:15%;">
 
 ```c#
+// c# code
 class Mail
 {
   //Data members:
@@ -175,8 +216,8 @@ class Mail
 
 </div>
 
-אנחנו יכולים ליצור משתנים כמו בdata אבל עם getter ו setter.
-**הדיפולט הוא משתנה שמאפשר רק get כמו עבור lowerCase_message**
+אנחנו יכולים ליצור משתנים כמו בdata אבל עם getter ו setter.\
+**הדיפולט הוא משתנה שמאפשר רק get כמו עבור lowerCase_message:**
 
 <div dir="ltr" style="padding-left:15%;">
 
@@ -206,7 +247,7 @@ computed: {
 
 > **<span style="color:green;">מתי נשתמש --> ##########ENTER_ANSWER_HERE###########</span>**
 
-**[קישור לדוגמאת הקוד השנייה - יש להוציא מהערה את הפרמטר computed ואת ההערה בbody שמתייחסת לlowerCase_message ](codes/3_vue_object_properties.html)**
+**[קישור לדוגמאת הקוד השנייה](codes/3_vue_object_properties.html)**
 
 - ## created (and) beforeDestroy
   במחזור החיים של אובייקט Vue, ישנם שני eventים שמעניינים אותנו:
@@ -219,9 +260,12 @@ computed: {
 >   &#09;  
 >   **<span style="color:green;">מתי נשתמש --> ניקוי נתונים שאנחנו לא צריכים מהזיכרון</span>**
 
+## <span style="color:green;"> <-- משימה 4 --> </span>
+**בכל קובץ עליכם להדפיס לconsole  שהאובייקט עבור העמוד (register או login) נוצר**
+
 [link to life cycle image](#lifecycle)
 
-**[קישור לדוגמאת הקוד השנייה - יש להוציא מהערה את הפרמטר created](codes/3_vue_object_properties.html)**
+**[קישור לדוגמאת הקוד השנייה - יש להוציא מהערה את הפרמטר created כדי לראות דוגמא](codes/3_vue_object_properties.html)**
 
 ## directives
 
@@ -282,6 +326,11 @@ methods: {
 ```
 
 </div>
+
+## <span style="color:green;"> <-- משימה 5 - *רשות* --> </span>
+> **תזכורת: כאשר יצרנו את הכפתור submit השתמשנו בv-on.**
+
+**כעת אתם יכולים להוריד את :v-on ולהשאיר רק את @ כמו שראינו בדוגמא למעלה**
 
 [עוד על v-on](https://vuejs.org/v2/api/#v-on)
 
@@ -366,6 +415,9 @@ data(){
 ```
 
 </div>
+
+## <span style="color:green;"> <-- משימה 6 --> </span>
+**בכל קובץ יש ליצור את כל התגים הדרושים בתוך תג הform ולקשר אותם למשתנים שהגדרתם ב[משימה 2](#משימה2) 2**
 
 [עוד על v-model](https://vuejs.org/v2/api/#v-model)
 
@@ -475,6 +527,11 @@ data(){
 </div>
 
 [עוד על v-for](https://vuejs.org/v2/api/#v-for)
+
+## form in Vue
+
+איך מייצרים form בVue
+
 
 &nbsp;
 &nbsp;

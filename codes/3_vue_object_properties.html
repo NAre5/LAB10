@@ -6,11 +6,11 @@
   </head>
   <body>
     <div id="app">
-      <div>{{ message }}</div>
+      <div>message: {{ message }}</div>
 
-      <!-- <button v-on:click="plus">plus button</button> -->
+      <button v-on:click="plus">plus button</button>
 
-      <!-- <div>{{ lowerCase_message }}</div> -->
+      <div> lowerCase_message: {{ lowerCase_message }}</div>
     </div>
 
     <script>
@@ -23,18 +23,18 @@
           };
         },
 
-        // methods: {
-        //   plus: function () {
-        //     this.message += " and ";
-        //     console.log(message);
-        //   }
-        // },
+        methods: {
+          plus: function () {
+            this.message += " And ";
+            console.log(message);
+          }
+        },
 
-        // computed: {
-        //   lowerCase_message: function () {
-        //     return this.message.toLowerCase();
-        //   }
-        // },
+        computed: {
+          lowerCase_message: function () {
+            return this.message.toLowerCase();
+          }
+        },
 
         // created() {
         //   this.plus();

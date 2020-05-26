@@ -62,7 +62,7 @@ Root Instance
 ```
 </div>
 
-<span style="color:green;font-weight: bold">מתי נשתמש --> בכל קובץ ניצור אובייקט Vue שיכיל את כל המידע שאנחנו צריכים ובTemplate נייצר form שיקבל מהמשתמש את המידע הנחוץ</span>
+**<span style="color:green;">מתי נשתמש --> בכל קובץ ניצור אובייקט Vue שיכיל את כל המידע שאנחנו צריכים ובTemplate נייצר form שיקבל מהמשתמש את המידע הנחוץ</span>**
 
 
 

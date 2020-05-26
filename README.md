@@ -81,7 +81,7 @@ Root Instance
 
 במעבדה הזאת אנחנו נדבר על מספר פרמטרים:
 
-- ### data
+- ## data
 
 
 <div dir="ltr" style="padding-left:15%;">
@@ -115,7 +115,7 @@ data() {
 
 **[קישור לדוגמאת הקוד השנייה](codes/3_vue_object_properties.html)**
 
-- ### methods
+- ## methods
 
 <div id="new" dir="ltr" style="padding-left:15%;">
 
@@ -152,7 +152,7 @@ this.plus();
 **[קישור לדוגמאת הקוד השנייה - יש להוציא מההערה את הפרמטר methods ואת הכפתור](codes/3_vue_object_properties.html)**
 
 
-- ### computed
+- ## computed
 
 בדומה ל#c שבו אנחנו יכולים ליצור property שייצר לנו משתנה שלו מוגזר getter ו setter - 
 
@@ -206,7 +206,7 @@ computed: {
 **[קישור לדוגמאת הקוד השנייה - יש להוציא מהערה את הפרמטר computed ואת ההערה בbody שמתייחסת לlowerCase_message ](codes/3_vue_object_properties.html)**
 
 
-- ### created (and) beforeDestroy
+- ## created (and) beforeDestroy
   במחזור החיים של אובייקט Vue, ישנם שני eventים שמעניינים אותנו:
 
 
@@ -281,19 +281,19 @@ methods: {
 
 
 
-- ### v-bind
+- ## v-bind
 
 כמה מילים... one way binding
 
-- ### v-model
+- ## v-model
 
 כמה מילים... two way binding
 
-- ### v-if
+- ## v-if
 
 כל מני מילים על v-if
 
-- ### v-for
+- ## v-for
 
 כל מני מילים על v-for
 
@@ -304,7 +304,7 @@ methods: {
 
 ## נספחים
 
-- ### <div id="computed_with_setter">computed with setter</div>
+- ## <div id="computed_with_setter">computed with setter</div>
 
 <div dir="ltr" style="padding-left:15%;">
 
@@ -335,6 +335,6 @@ this.fullName = 'John Doe'
 </div>
 firstName ו lastName יתעדכנו ב John ו Doe בהתאמה
 
-- ### <div id="lifecycle">lifecycle image</div>
+- ## <div id="lifecycle">lifecycle image</div>
 
 <img src="./lifecycle.png">

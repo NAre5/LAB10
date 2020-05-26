@@ -369,12 +369,10 @@ data(){
 
 [עוד על v-model](https://vuejs.org/v2/api/#v-model)
 
-
 - ## v-if (and) v-else
 
 מרנדר לפי תנאי אלמנט בהתבסס על אמיתות של ערך הביטוי שמקבל.\
 האלמנט והרכיבים הכלולים בו נוצרים ונהרסים בין שינויים של ערך הביטוי.
-
 
 צורת הכתיבה תיהיה:
 
@@ -396,7 +394,7 @@ Inside template:
   ***somthing for if***
 </div>
 <div v-else>
-    ***somthing for else***
+  ***somthing for else***
 </div>
 ```
 
@@ -414,12 +412,70 @@ data(){
 
 [עוד על v-if](https://vuejs.org/v2/api/#v-if)\
 [עוד על v-else](https://vuejs.org/v2/api/#v-else)\
-[העשרה:  v-else-if](https://vuejs.org/v2/api/#v-else-if)
-
+[העשרה: v-else-if](https://vuejs.org/v2/api/#v-else-if)
 
 - ## v-for
 
-כל מני מילים על v-for
+מרנדר אלמנט מספר פעמים על פי הקלט.
+
+צורת הכתיבה חייבת להיות בצורה `alias in expression` , כדי לספק כינוי לאלמנט הנוכחי באיטרציה.
+
+צורת הכתיבה תיהיה:
+
+<div dir="ltr" style="padding-left:15%;">
+
+```
+v-for="alias in Array | Object | number | string | Iterable"
+
+```
+
+</div>
+
+לחלופין, אפשר לציין כינוי לאינדקס (וגם למפתח אם עוברים על אובייקט):
+
+<div dir="ltr" style="padding-left:15%;">
+
+```
+v-for="(item, index) in items"
+v-for="(val, key) in object"
+v-for="(val, name, index) in object"
+```
+
+</div>
+
+<div dir="ltr" style=";">
+
+Inside template:
+
+```html
+<div v-for="(message, i) in messages">
+  {{ i }}) {{ message }}
+</div>
+
+<ol>
+  <li v-for="message in messages">
+    {{ message }}
+  </li>
+</ol>
+```
+
+Inside Vue object:
+
+```javascript
+data(){
+  return {
+    messages: [
+      "eran: hey! 😁",
+      "yossi: hey! whats up? 🤷‍♂️",
+      "i'm good ✌"
+    ]
+  };
+}
+```
+
+</div>
+
+[עוד על v-if](https://vuejs.org/v2/api/#v-if)\
 
 &nbsp;
 &nbsp;

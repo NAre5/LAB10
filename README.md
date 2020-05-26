@@ -39,16 +39,22 @@
 ## אפליקציית Vue
 
 כאשר אנחנו רוצים ליצור *אפליקציית Vue*, היא חייבת להכיל **אובייקט Vue שיהיה הRoot**, על ידי:
-<div id="new" dir="ltr">
+<div id="new" dir="ltr" style="padding-left:50%;">
 
 ```javascript
-new Vue({options})
+new Vue({
+  // options
+  el: "#app",// query selector
+  data: ,
+  methods: ,
+  // ... ,
+})
 ```
 </div>
 
 אפליקציית Vue יכולה להיות מאורגנת בצורת עץ מקונן שמכיל קומפוננטות אחרות של Vue.
 ***לדוגמא*** אפליקציית משימות יכולה להראות בצורה הזאת:
-<div dir="ltr">
+<div dir="ltr" style="padding-left:50%;">
 
 ```
 Root Instance
@@ -66,7 +72,7 @@ Root Instance
 
 
 
-[קישור לדוגמאת הקוד הראשונה](codes/2_hello_world_vue.html)
+**[קישור לדוגמאת הקוד הראשונה](codes/2_hello_world_vue.html)**
 
 ## פרמטרים של אובייקט Vue
 
@@ -76,18 +82,8 @@ Root Instance
 
 - ### data
 
-<div dir="ltr" style="overflow: hidden;width:100%;display: block">
-<!-- <div dir="ltr" style="float:left">
-צורה ישנה - אובייקט
 
-```javascript
-data: {
-    message: "Hello Vue!"
-};
-```
-</div> -->
-<div dir="ltr" style="float:left">
-<!-- <b>צורה מועדפת</b> - פונקציה שמחזירה אובייקט -->
+<div dir="ltr" style="padding-left:50%;">
 
 ```javascript
 data() {
@@ -97,7 +93,7 @@ data() {
 }
 ```
 </div>
-</div>
+
 
 כל הפרמטרים שחוזרים מdata נוספים כפרמטרים של האובייקט, והפנייה אליהם בתוך האובייקט היא כמו במחלקה בjava - דרך הפוינטר this.
 
@@ -109,10 +105,10 @@ data() {
 {{ message }}
 ```
 
-<span style="color:green;">מתי נשתמש --> כאשר נגדיר משתנים שיחזיקו לנו את השם משתמש והסיסמא בform</span>
+> **<span style="color:green;">מתי נשתמש --> כאשר נגדיר משתנים שיחזיקו לנו את השם משתמש והסיסמא בform</span>**
 
 
-[קישור לדוגמאת הקוד השנייה](codes/3_vue_object_properties.html)
+**[קישור לדוגמאת הקוד השנייה](codes/3_vue_object_properties.html)**
 
 - ### methods
 
@@ -146,73 +142,73 @@ this.plus();
 ```
 </div>
 
-<span style="color:green;">מתי נשתמש --> כאשר נגדיר פעולה שתרוץ כאשר נלחץ על כפתור submit בform</span>
+> **<span style="color:green;">מתי נשתמש --> כאשר נגדיר פעולה שתרוץ כאשר נלחץ על כפתור submit בform</span>**
 
-[קישור לדוגמאת הקוד השנייה - יש להוציא מההערה את הפרמטר methods ואת הכפתור](codes/3_vue_object_properties.html)
+**[קישור לדוגמאת הקוד השנייה - יש להוציא מההערה את הפרמטר methods ואת הכפתור](codes/3_vue_object_properties.html)**
 
 
 - ### computed
 
 בדומה ל#c שבו אנחנו יכולים ליצור property שייצר לנו משתנה שלו מוגזר getter ו setter - 
 
-<div id="new" dir="ltr">
+<div id="new" dir="ltr" style="padding-left:50%;">
 
 ```javascript
-class Person
+class Mail
 {
   //Data members:
-  private string firstName;
+  private string message;
 
   //Properties:
-  public string FirstName
+  public string LowerCase_Message
   {
-    get { return firstName; }
-    set { firstName = value; }
+    get { return message.ToLower(); }
+    set { message = value; }
   }
 }
 ```
 </div>
 
 אנחנו יכולים ליצור משתנים כמו בdata אבל עם getter ו setter.
-**הדיפולט הוא משתנה שמאפשר רק get כמו עבור upperCase_message**
+**הדיפולט הוא משתנה שמאפשר רק get כמו עבור lowerCase_message**
 
-<div dir="ltr">
+<div dir="ltr" style="padding-left:50%;">
 
 ```javascript
 computed: {
-  upperCase_message: function(){
-    return this.message.toUpperCase();
+  lowerCase_message: function(){
+    return this.message.toLowerCase();
   }
 }
 ```
 </div>
 
-[קישור להרחבה עבור משתנה עם setter](#computed_with_setter)
+> [קישור להרחבה עבור משתנה עם setter](#computed_with_setter)
 
 כל המשתנים שהגדרנו בתוך computed נוספים לתוך האובייקט, והפנייה אליהם בתוך הקוד היא דרך הפוינטר this.
 
 אחת האפשרויות לתצוגה של אותם ערכים ניתנת באמצעות שימוש בסוגריים מסולסלים ובתוכם הפרמטר:
 ```html
-{{ upperCase_message }}
+{{ lowerCase_message }}
 ```
 
-<span style="color:green;">מתי נשתמש --> ##########ENTER_ANSWER_HERE###########</span>
+> **<span style="color:green;">מתי נשתמש --> ##########ENTER_ANSWER_HERE###########</span>**
 
-[קישור לדוגמאת הקוד השנייה - יש להוציא מהערה את הפרמטר computed ואת ההערה בbody שמתייחסת לupperCase_message ](codes/3_vue_object_properties.html)
+**[קישור לדוגמאת הקוד השנייה - יש להוציא מהערה את הפרמטר computed ואת ההערה בbody שמתייחסת לlowerCase_message ](codes/3_vue_object_properties.html)**
 
 
 - ### created (and) beforeDestroy
   במחזור החיים של אובייקט Vue, ישנם שני eventים שמעניינים אותנו:
 > * **created:** מסמל את הרגע בו האובייקט נוצר ואנחנו יכולים להריץ קוד
-  <span style="color:green;">מתי נשתמש --> שליחת בקשה לשרת והשמת התוצאה למשתנה של האובייקט ברגע שהיא חוזרת</span>
+  **<span style="color:green;">מתי נשתמש --> שליחת בקשה לשרת והשמת התוצאה למשתנה של האובייקט ברגע שהיא חוזרת</span>**
   
 
 > * **beforeDestroy:** מסמל את הרגע לפני שהאובייקט נהרס ומאפשר לנו להריץ קוד
-  <span style="color:green;">מתי נשתמש --> ניקוי נתונים שאנחנו לא צריכים מהזיכרון</span>
+  **<span style="color:green;">מתי נשתמש --> ניקוי נתונים שאנחנו לא צריכים מהזיכרון</span>**
 
 [link to life cycle image](#lifecycle)
 
-[קישור לדוגמאת הקוד השנייה - יש להוציא מהערה את הפרמטר created](codes/3_vue_object_properties.html)
+**[קישור לדוגמאת הקוד השנייה - יש להוציא מהערה את הפרמטר created](codes/3_vue_object_properties.html)**
 
 ## directives
 
@@ -229,7 +225,21 @@ computed: {
 
 - ### <div id="v-on">v-on</div>
 
-כל מני מילים כל v-on
+<div style="display: flex;">
+
+```html
+<a v-on:click="handleClick">Click me!</a>
+```
+</div>
+
+מפשר להאזין לDOM events, ולהפעיל פעולה כשהevent קורה.
+
+
+
+
+
+
+
 
 - ### v-bind
 
@@ -256,7 +266,7 @@ computed: {
 
 - ### <div id="computed_with_setter">computed with setter</div>
 
-<div dir="ltr">
+<div dir="ltr" style="padding-left:50%;">
 
 ```javascript
 computed: {
@@ -277,7 +287,7 @@ computed: {
 </div>
 
 עבור fullName, שכאשר נריץ:
-<div dir="ltr">
+<div dir="ltr" style="padding-left:50%;">
 
 ```javascript
 this.fullName = 'John Doe'

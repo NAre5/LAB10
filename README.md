@@ -208,12 +208,15 @@ computed: {
 
 - ### created (and) beforeDestroy
   במחזור החיים של אובייקט Vue, ישנם שני eventים שמעניינים אותנו:
+
+
 > * **created:** מסמל את הרגע בו האובייקט נוצר ואנחנו יכולים להריץ קוד
-  **<span style="color:green;">מתי נשתמש --> שליחת בקשה לשרת והשמת התוצאה למשתנה של האובייקט ברגע שהיא חוזרת</span>**
-  
+&#09;  
+**<span style="color:green;">מתי נשתמש --> שליחת בקשה לשרת והשמת התוצאה למשתנה של האובייקט ברגע שהיא חוזרת</span>**
 
 > * **beforeDestroy:** מסמל את הרגע לפני שהאובייקט נהרס ומאפשר לנו להריץ קוד
-  **<span style="color:green;">מתי נשתמש --> ניקוי נתונים שאנחנו לא צריכים מהזיכרון</span>**
+&#09;  
+**<span style="color:green;">מתי נשתמש --> ניקוי נתונים שאנחנו לא צריכים מהזיכרון</span>**
 
 [link to life cycle image](#lifecycle)
 
@@ -234,14 +237,43 @@ computed: {
 
 - ### <div id="v-on">v-on</div>
 
+מפשר להאזין לDOM events, ולהפעיל פעולה כשהevent קורה.
+
+צורת הכתיבה תיהיה:
+
 <div dir="ltr" style="padding-left:15%;">
 
 ```html
-<a v-on:click="handleClick">Click me!</a>
+v-on:EventName
+או
+@EventName
 ```
 </div>
 
-מפשר להאזין לDOM events, ולהפעיל פעולה כשהevent קורה.
+> טיפ: באנגלית קוראים לסימן @ = at, אז אפשר לזכרור את זה כ  - at EventName
+
+<div dir="ltr" style="padding-left:15%;">
+
+Inside template:
+```html
+<a v-on:click="handleClick">Click me!</a>
+
+equal to writing:
+<a @click="handleClick">Click me!</a>
+```
+
+Inside Vue object:
+```javascript
+methods: {
+  handleClick: function() {
+    alert('Clicked');
+  }
+}
+
+```
+
+</div>
+
 
 
 

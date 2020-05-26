@@ -6,19 +6,21 @@
   </head>
   <body>
     <div id="app">
-      {{ message }}
+      <a @click="handleClick">Click me!</a>
     </div>
 
     <script>
       var app = new Vue({
         el: "#app",
-        data(){
-          return{
+        data() {
+          return {
             message: "Hello Vue!"
-          }
+          };
         },
-        created(){
-          // alert("created")
+        methods: {
+          handleClick: function () {
+            alert("test");
+          }
         }
       });
     </script>

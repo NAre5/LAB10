@@ -235,7 +235,7 @@ computed: {
 היום במעבדה נדבר על directives מפורסמים שגם נעשה בהם שימוש במעבדה.
 > אני ממליץ לכם לקרוא על עוד directives ולהעשיר את הידע.
 
-- ### <div id="v-on">v-on</div>
+- ## <div id="v-on">v-on</div>
 
 מפשר להאזין לDOM events, ולהפעיל פעולה כשהevent קורה.
 
@@ -257,8 +257,7 @@ v-on:EventName
 Inside template:
 ```html
 <a v-on:click="handleClick">Click me!</a>
-
-equal to writing:
+או
 <a @click="handleClick">Click me!</a>
 ```
 

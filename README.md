@@ -273,14 +273,6 @@ methods: {
 
 </div>
 
-
-
-
-
-
-
-
-
 - ## v-bind
 
 כמה מילים... one way binding
@@ -289,7 +281,7 @@ methods: {
 
 כמה מילים... two way binding
 
-- ## v-if
+- ## v-if (and) v-else
 
 כל מני מילים על v-if
 
@@ -338,3 +330,5 @@ firstName ו lastName יתעדכנו ב John ו Doe בהתאמה
 - ## <div id="lifecycle">lifecycle image</div>
 
 <img src="./lifecycle.png">
+
+</div>

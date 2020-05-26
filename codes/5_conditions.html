@@ -12,7 +12,8 @@
       <div>
         <button v-on:click="submit">submit</button>
       </div>
-      <div v-if="response.length">response: {{ response }}</div>
+      <pre id="if" v-if="response.length">response: {{ response }}</pre>
+      <pre id="else" v-else>things inside else</pre>
     </div>
 
     <script>

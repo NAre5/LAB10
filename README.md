@@ -19,6 +19,7 @@
 
 ## מטרה
 
+**המטרה שלנו בסוף התרגול זה לייצר עמוד Register ועמוד Login (כרגע נפרדים).**
 
 
 ## צורת הייבוא של Vue
@@ -28,7 +29,7 @@
 
 <div id="import" dir="ltr">
 
-```javascript
+```html
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
 ```
 </div>
@@ -60,6 +61,10 @@ Root Instance
       └─ TodoListStatistics
 ```
 </div>
+
+<span style="color:green;font-weight: bold">מתי נשתמש --> בכל קובץ ניצור אובייקט Vue שיכיל את כל המידע שאנחנו צריכים ובTemplate נייצר form שיקבל מהמשתמש את המידע הנחוץ</span>
+
+
 
 [קישור לדוגמאת הקוד הראשונה](codes/2_hello_world_vue.html)
 
@@ -99,7 +104,8 @@ data() {
 כאשר אובייקט Vue נוצר, הוא מוסיף את כל הפרמטרים שנמצאים באובייקט data אל המערכת הריאקטיבית של Vue. כאשר הערכים של אותם פרמטרים משתנים התצוגה תגיב, ותתעדכן לפי הערכים החדשים
 
 אחת האפשרויות לתצוגה של אותם ערכים ניתנת באמצעות שימוש בסוגריים מסולסלים ובתוכם הפרמטר:
-```
+
+```html
 {{ message }}
 ```
 
@@ -135,12 +141,14 @@ this.plus();
 
 <div id="new" dir="ltr">
 
-```javascript
+```html
 <button v-on:click="plus"> plus button </button>
 ```
 </div>
 
 <span style="color:green;">מתי נשתמש --> כאשר נגדיר פעולה שתרוץ כאשר נלחץ על כפתור submit בform</span>
+
+[קישור לדוגמאת הקוד השנייה - יש להוציא מההערה את הפרמטר methods ואת הכפתור](codes/3_vue_object_properties.html)
 
 
 - ### computed
@@ -184,23 +192,27 @@ computed: {
 כל המשתנים שהגדרנו בתוך computed נוספים לתוך האובייקט, והפנייה אליהם בתוך הקוד היא דרך הפוינטר this.
 
 אחת האפשרויות לתצוגה של אותם ערכים ניתנת באמצעות שימוש בסוגריים מסולסלים ובתוכם הפרמטר:
-```
+```html
 {{ upperCase_message }}
 ```
 
 <span style="color:green;">מתי נשתמש --> ##########ENTER_ANSWER_HERE###########</span>
 
+[קישור לדוגמאת הקוד השנייה - יש להוציא מהערה את הפרמטר computed ואת ההערה בbody שמתייחסת לupperCase_message ](codes/3_vue_object_properties.html)
+
+
 - ### created (and) beforeDestroy
   במחזור החיים של אובייקט Vue, ישנם שני eventים שמעניינים אותנו:
 > * **created:** מסמל את הרגע בו האובייקט נוצר ואנחנו יכולים להריץ קוד
-  <span style="color:green;">מתי נשתמש -- שליחת בקשה לשרת והשמת התוצאה למשתנה של האובייקט ברגע שהיא חוזרת</span>
+  <span style="color:green;">מתי נשתמש --> שליחת בקשה לשרת והשמת התוצאה למשתנה של האובייקט ברגע שהיא חוזרת</span>
   
 
 > * **beforeDestroy:** מסמל את הרגע לפני שהאובייקט נהרס ומאפשר לנו להריץ קוד
-  <span style="color:green;">מתי נשתמש -- ניקוי נתונים שאנחנו לא צריכים מהזיכרון</span>
+  <span style="color:green;">מתי נשתמש --> ניקוי נתונים שאנחנו לא צריכים מהזיכרון</span>
 
 [link to life cycle image](#lifecycle)
 
+[קישור לדוגמאת הקוד השנייה - יש להוציא מהערה את הפרמטר created](codes/3_vue_object_properties.html)
 
 ## directives
 

@@ -7,32 +7,38 @@
   <body>
     <div id="app">
       <div>{{ message }}</div>
-      <button v-on:click="plus">plus button</button>
-      <div>{{ upperCase_message }}</div>
+
+      <!-- <button v-on:click="plus">plus button</button> -->
+
+      <!-- <div>{{ upperCase_message }}</div> -->
     </div>
 
     <script>
       var app = new Vue({
         el: "#app",
+
         data() {
           return {
             message: "Hello Vue!"
           };
         },
-        methods: {
-          plus: function () {
-            this.message += " and ";
-            console.log(message);
-          }
-        },
-        computed: {
-          upperCase_message: function(){
-            return this.message.toUpperCase();
-          }
-        },
-        mounted() {
-          this.plus();
-        }
+
+        // methods: {
+        //   plus: function () {
+        //     this.message += " and ";
+        //     console.log(message);
+        //   }
+        // },
+
+        // computed: {
+        //   upperCase_message: function () {
+        //     return this.message.toUpperCase();
+        //   }
+        // },
+
+        // created() {
+        //   this.plus();
+        // }
       });
     </script>
   </body>

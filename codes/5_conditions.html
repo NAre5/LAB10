@@ -6,19 +6,32 @@
   </head>
   <body>
     <div id="app">
-      {{ message }}
+      <h2>The message length need to be between 3-5</h2>
+      <input v-model="message" />
+      the message is currently: {{ message }}
+      <div>
+        <button v-on:click="submit">submit</button>
+      </div>
+      <div v-if="response.length">response: {{ response }}</div>
     </div>
 
     <script>
       var app = new Vue({
         el: "#app",
-        data(){
-          return{
-            message: "Hello Vue!"
-          }
+        data() {
+          return {
+            message: "",
+            response: ""
+          };
         },
-        created(){
-          // alert("created")
+        methods: {
+          submit() {
+            this.response = "";
+            let len = this.message.length;
+            if (len < 3 || len > 5)
+              this.response = `message length need to be between 3-5, but now it is ${len}`;
+            else this.response = `message length is between 3-5, well done ✌`;
+          }
         }
       });
     </script>

@@ -426,7 +426,6 @@ data(){
 
 ```
 v-for="alias in Array | Object | number | string | Iterable"
-
 ```
 
 </div>
@@ -475,7 +474,7 @@ data(){
 
 </div>
 
-[עוד על v-if](https://vuejs.org/v2/api/#v-if)\
+[עוד על v-for](https://vuejs.org/v2/api/#v-for)
 
 &nbsp;
 &nbsp;

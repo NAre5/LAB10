@@ -1,6 +1,6 @@
-<div dir="rtl">
+<div dir="rtl" style="padding:0 20% 0 20%">
 
-# ברוכים הבאים ל Vue.js :rocket:
+# ברוכים הבאים ל Vue.js ! :rocket:
 
 ## הכנה
 
@@ -19,15 +19,15 @@
 
 ## מטרה
 
-**המטרה שלנו בסוף התרגול זה לייצר עמוד Register ועמוד Login (כרגע נפרדים).**
+**המטרה שלנו בסוף התרגול זה לייצר עמוד Register ועמוד Login (כרגע נפרדים)**
 
 
 ## צורת הייבוא של Vue
 
 את המודולים של Vue אנחנו יכולים לייבא בכמה דרכים.
-הדרך הראשונה שנדבר עליה היא על ידי תג script: (מומלץ להכריז עליו בhead)
+הדרך הראשונה שנדבר עליה היא על ידי תג script (מומלץ להכריז עליו בhead): 
 
-<div id="import" dir="ltr">
+<div id="import" dir="ltr" style="padding-left:15%;">
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/vue"></script>
@@ -39,7 +39,7 @@
 ## אפליקציית Vue
 
 כאשר אנחנו רוצים ליצור *אפליקציית Vue*, היא חייבת להכיל **אובייקט Vue שיהיה הRoot**, על ידי:
-<div id="new" dir="ltr" style="padding-left:50%;">
+<div id="new" dir="ltr" style="padding-left:15%;">
 
 ```javascript
 new Vue({
@@ -53,8 +53,9 @@ new Vue({
 </div>
 
 אפליקציית Vue יכולה להיות מאורגנת בצורת עץ מקונן שמכיל קומפוננטות אחרות של Vue.
+
 ***לדוגמא*** אפליקציית משימות יכולה להראות בצורה הזאת:
-<div dir="ltr" style="padding-left:50%;">
+<div dir="ltr" style="padding-left:15%;">
 
 ```
 Root Instance
@@ -83,7 +84,7 @@ Root Instance
 - ### data
 
 
-<div dir="ltr" style="padding-left:50%;">
+<div dir="ltr" style="padding-left:15%;">
 
 ```javascript
 data() {
@@ -101,9 +102,13 @@ data() {
 
 אחת האפשרויות לתצוגה של אותם ערכים ניתנת באמצעות שימוש בסוגריים מסולסלים ובתוכם הפרמטר:
 
+<div dir="ltr" style="padding-left:15%;">
+
+
 ```html
 {{ message }}
 ```
+</div>
 
 > **<span style="color:green;">מתי נשתמש --> כאשר נגדיר משתנים שיחזיקו לנו את השם משתמש והסיסמא בform</span>**
 
@@ -112,7 +117,7 @@ data() {
 
 - ### methods
 
-<div id="new" dir="ltr">
+<div id="new" dir="ltr" style="padding-left:15%;">
 
 ```javascript
 methods: {
@@ -126,7 +131,7 @@ methods: {
 
 כל הפונקציות שבתוך methods נוספים כפונקציות של האובייקט, והפנייה אליהם בתוך האובייקט היא דרך הפוינטר this.
 
-<div id="new" dir="ltr">
+<div id="new" dir="ltr" style="padding-left:15%;">
 
 ```javascript
 this.plus();
@@ -135,7 +140,7 @@ this.plus();
 
 הפנייה לפונקציה מתוך התצוגה תעשה בצורה הבאה על ידי directive בשם [v-on](#v-on):
 
-<div id="new" dir="ltr">
+<div id="new" dir="ltr" style="padding-left:15%;">
 
 ```html
 <button v-on:click="plus"> plus button </button>
@@ -151,9 +156,9 @@ this.plus();
 
 בדומה ל#c שבו אנחנו יכולים ליצור property שייצר לנו משתנה שלו מוגזר getter ו setter - 
 
-<div id="new" dir="ltr" style="padding-left:50%;">
+<div id="new" dir="ltr" style="padding-left:15%;">
 
-```javascript
+```c#
 class Mail
 {
   //Data members:
@@ -172,7 +177,7 @@ class Mail
 אנחנו יכולים ליצור משתנים כמו בdata אבל עם getter ו setter.
 **הדיפולט הוא משתנה שמאפשר רק get כמו עבור lowerCase_message**
 
-<div dir="ltr" style="padding-left:50%;">
+<div dir="ltr" style="padding-left:15%;">
 
 ```javascript
 computed: {
@@ -188,9 +193,13 @@ computed: {
 כל המשתנים שהגדרנו בתוך computed נוספים לתוך האובייקט, והפנייה אליהם בתוך הקוד היא דרך הפוינטר this.
 
 אחת האפשרויות לתצוגה של אותם ערכים ניתנת באמצעות שימוש בסוגריים מסולסלים ובתוכם הפרמטר:
+
+<div dir="ltr" style="padding-left:15%;">
+
 ```html
 {{ lowerCase_message }}
 ```
+</div>
 
 > **<span style="color:green;">מתי נשתמש --> ##########ENTER_ANSWER_HERE###########</span>**
 
@@ -225,7 +234,7 @@ computed: {
 
 - ### <div id="v-on">v-on</div>
 
-<div style="display: flex;">
+<div dir="ltr" style="padding-left:15%;">
 
 ```html
 <a v-on:click="handleClick">Click me!</a>
@@ -266,7 +275,7 @@ computed: {
 
 - ### <div id="computed_with_setter">computed with setter</div>
 
-<div dir="ltr" style="padding-left:50%;">
+<div dir="ltr" style="padding-left:15%;">
 
 ```javascript
 computed: {
@@ -287,7 +296,7 @@ computed: {
 </div>
 
 עבור fullName, שכאשר נריץ:
-<div dir="ltr" style="padding-left:50%;">
+<div dir="ltr" style="padding-left:15%;">
 
 ```javascript
 this.fullName = 'John Doe'

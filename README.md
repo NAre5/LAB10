@@ -412,9 +412,9 @@ data(){
 
 </div>
 
-[עוד על v-if](https://vuejs.org/v2/api/#v-model)\
-[עוד על v-else](https://vuejs.org/v2/api/#v-model)\
-[העשרה:  v-else-if](https://vuejs.org/v2/api/#v-model)
+[עוד על v-if](https://vuejs.org/v2/api/#v-if)\
+[עוד על v-else](https://vuejs.org/v2/api/#v-else)\
+[העשרה:  v-else-if](https://vuejs.org/v2/api/#v-else-if)
 
 
 - ## v-for

@@ -295,7 +295,9 @@ methods: {
 
 ```
 v-bind:AttributeName="expression"
+
 או
+
 :AttributeName="expression"
 ```
 
@@ -309,7 +311,9 @@ Inside template:
 <button v-bind:disabled="buttonFlag">
   Button
 </button>
+
 או
+
 <button :disabled="buttonFlag">
   Button
 </button>

@@ -264,7 +264,9 @@ Inside template:
 
 ```html
 <a v-on:click="handleClick">Click me!</a>
+
 או
+
 <a @click="handleClick">Click me!</a>
 ```
 

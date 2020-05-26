@@ -9,7 +9,7 @@
 1. להוריד את כלי הפיתוח עבור vue בתוך הדפדפן:
    - [עבור הדפדפן של Chrome](https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
    - [עבור הדפדפן של Firefox](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-2. לייבא את הקוד [מgithub]()
+2. לייבא את הקוד [מgithub](https://github.com/SISE-Web-Development-Environments/LAB10)
 3. להוריד את התוספים הבאים לvscode:
    - Markdown Preview Enhanced
    - Live Server

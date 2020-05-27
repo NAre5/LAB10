@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My first Vue app</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Vue Chat</h1>
+      messages:
+      <ol>
+        <li v-for="message in messages">
+          {{ message }}
+        </li>
+      </ol>
+      <label for="newMessage">New Message:</label>
+      <select v-model="sender">
+        <option disabled value="">Select sender</option>
+        <option value="Eran" selected>
+          Eran
+        </option>
+        <option value="Yossi">
+          Yossi
+        </option>
+      </select>
+      <input
+        id="newMessage"
+        v-model="newMessage"
+        @keyup.enter="addToList"
+        placeholder="Please enter message..."
+      />
+      <button @click="addToList">Add message</button>
+      <div v-if="error" v-html="error" style="color: tomato;"></div>
+      <hr>
+      <div>
+        notifications:
+      </div>
+      <ul>
+        <li v-for="(notification,index) in notifications" :key="index">
+          {{ notification.sender }} sended the message
+          "{{notification.message}}" in time={{notification.time}}
+          <button @click="removeNotification(index,$event)">
+            remove notification
+          </button>
+          <!-- <transition > asd </transition> -->
+        </li>
+      <ul/>
+      <button v-if="notifications.length" @click="shuffleN">shuffle</button>
+    </div>
+
+    <script>
+      function shuffle(array) {
+        array.sort(() => Math.random() - 0.5);
+      }
+      var app = new Vue({
+        el: "#app",
+        data() {
+          return {
+            messages: [
+              "Eran: hey! 😁",
+              "Yossi: hey! whats up? 🤷‍♂️",
+              "Eran: i'm good ✌"
+            ],
+            newMessage: "",
+            notifications: [],
+            sender: "",
+            error: "",
+            time: 1
+          };
+        },
+        methods: {
+          addToList(e) {
+            this.error = "";
+            if (!this.sender) this.error = "need to choose sender";
+            else if (!this.newMessage)
+              this.error = "need to write a non empty message";
+            else {
+              this.messages.push(`${this.sender}: ${this.newMessage}`);
+              this.notifications.push({
+                sender: this.sender,
+                message: this.newMessage,
+                time: this.time
+              });
+              this.time++;
+            }
+          },
+          removeNotification(index) {
+            this.$delete(this.notifications, index);
+          },
+          shuffleN() {
+            shuffle(this.notifications);
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

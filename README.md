@@ -101,10 +101,12 @@ Root Instance
 
 </div>
 
-## <span style="color:green;"> <-- משימה 1 --> </span>
+## <span id="task1" style="color:green;"> <-- משימה 1 --> </span>
 **בכל קובץ יש ליצור:**
 1. **תג שיכיל את הTemplate של האובייקט (שבו בעתיד ניצור form שיקבל מהמשתמש את המידע הנחוץ)**
 2. **אובייקט Vue (שיכיל את הלוגיקה של הטופס)**
+
+*קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#task5) [6](#task6) [7](#task7) [8](#task8)*
 
 
 **[קישור לדוגמאת הקוד הראשונה](codes/2_hello_world_vue.html)**
@@ -143,9 +145,10 @@ data() {
 
 </div>
 
-## <span id="משימה2" style="color:green;"> <-- משימה 2 --> </span>
+## <span id="task2" style="color:green;"> <-- משימה 2 --> </span>
 **בכל קובץ יש להגדיר משתנים שיחזיקו לנו את קלטי המשתמש של הform (כמו שם המשתמש והסיסמא)**
 
+*קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#task5) [6](#task6) [7](#task7) [8](#task8)*
 
 **[קישור לדוגמאת הקוד השנייה](codes/3_vue_object_properties.html)**
 
@@ -184,11 +187,12 @@ this.plus();
 
 </div>
 
-## <span style="color:green;"> <-- משימה 3 --> </span>
+## <span id="task3" style="color:green;"> <-- משימה 3 --> </span>
 **בכל קובץ יש ליצור:**
 1. **תג form ובו תג input מסוג <input type="submit" value="Submit">**
 2. **פונקציה בתוך הפרמטר methods שתקרא בעת לחיצה על הכפתור**
 
+*קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#task5) [6](#task6) [7](#task7) [8](#task8)*
 
 **[קישור לדוגמאת הקוד השנייה](codes/3_vue_object_properties.html)**
 
@@ -260,8 +264,10 @@ computed: {
 >   &#09;  
 >   **<span style="color:green;">מתי נשתמש --> ניקוי נתונים שאנחנו לא צריכים מהזיכרון</span>**
 
-## <span style="color:green;"> <-- משימה 4 --> </span>
+## <span id="task4" style="color:green;"> <-- משימה 4 --> </span>
 **בכל קובץ עליכם להדפיס לconsole  שהאובייקט עבור העמוד (register או login) נוצר**
+
+*קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#task5) [6](#task6) [7](#task7) [8](#task8)*
 
 [link to life cycle image](#lifecycle)
 
@@ -327,10 +333,12 @@ methods: {
 
 </div>
 
-## <span style="color:green;"> <-- משימה 5 - *רשות* --> </span>
+## <span id="task5" style="color:green;"> <-- משימה 5 - *רשות* --> </span>
 > **תזכורת: כאשר יצרנו את הכפתור submit השתמשנו בv-on.**
 
 **כעת אתם יכולים להוריד את :v-on ולהשאיר רק את @ כמו שראינו בדוגמא למעלה**
+
+*קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#task5) [6](#task6) [7](#task7) [8](#task8)*
 
 [עוד על v-on](https://vuejs.org/v2/api/#v-on)
 
@@ -416,15 +424,19 @@ data(){
 
 </div>
 
-## <span style="color:green;"> <-- משימה 6 --> </span>
-**בכל קובץ יש ליצור את כל התגים הדרושים בתוך תג הform ולקשר אותם למשתנים שהגדרתם ב[משימה 2](#משימה2) 2**
+## <span id="task6" style="color:green;"> <-- משימה 6 --> </span>
+**בכל קובץ יש ליצור את כל התגים הדרושים בתוך תג הform ולקשר אותם למשתנים שהגדרתם ב[משימה 2](#task2)**
+
+*קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#task5) [6](#task6) [7](#task7) [8](#task8)*
 
 [עוד על v-model](https://vuejs.org/v2/api/#v-model)
 
-- ## v-if (and) v-else
+- ## v-if (and) v-else (and) v-else-if
 
 מרנדר לפי תנאי אלמנט בהתבסס על אמיתות של ערך הביטוי שמקבל.\
 האלמנט והרכיבים הכלולים בו נוצרים ונהרסים בין שינויים של ערך הביטוי.
+
+v-else ו v-else-if בעלות **אותו הגיון כמו בשאר שפות תכנות** בכך שelse או else-if יופיע רק לאחר if. 
 
 צורת הכתיבה תיהיה:
 
@@ -432,6 +444,7 @@ data(){
 
 ```
 v-if="expression"
+v-else-if="expression"
 v-else
 ```
 
@@ -445,6 +458,9 @@ Inside template:
 <div v-if="flag">
   ***somthing for if***
 </div>
+<div v-if="flag2">
+  ***somthing for else-if***
+</div>
 <div v-else>
   ***somthing for else***
 </div>
@@ -455,12 +471,25 @@ Inside Vue object:
 ```javascript
 data(){
   return {
-    flag: true
+    flag: false,
+    flag2: true
   };
 }
 ```
 
 </div>
+
+## <span id="task7" style="color:green;"> <-- משימה 7 --> </span>
+**בכל קובץ יש ליצור:**
+1. **משתנה של שגיאות (כרגע מסוג string)**
+
+2. **בפונקציה שמטפלת בsubmit בדיקות ששם המשתמש רשום כולו באותיות קטנות ואורך הסיסמא בין 3 ל6 תווים. במידה ובדיקה יצאה שגויה יש להוסיף אותה למשתנה השגיאות**
+
+3. **תג div שמציג את השגיאות אם הsubmit לא עבר בהצלחה ונתקל בשגיאות**
+
+4. **תג div שמציג הודעת הצלחה במקרה והsubmit קרה בלי שגיאות**
+
+*קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#task5) [6](#task6) [7](#task7) [8](#task8)*
 
 [עוד על v-if](https://vuejs.org/v2/api/#v-if)\
 [עוד על v-else](https://vuejs.org/v2/api/#v-else)\
@@ -494,7 +523,7 @@ v-for="(val, name, index) in object"
 
 </div>
 
-<div dir="ltr" style=";">
+<div dir="ltr" style="padding-left:15%;">
 
 Inside template:
 
@@ -525,6 +554,13 @@ data(){
 ```
 
 </div>
+
+## <span id="task8" style="color:green;"> <-- משימה 8 --> </span>
+**בכל קובץ יש ליצור:**
+1. **תג שיכיל את הTemplate של האובייקט (שבו בעתיד ניצור form שיקבל מהמשתמש את המידע הנחוץ)**
+2. **אובייקט Vue (שיכיל את הלוגיקה של הטופס)**
+
+*קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#task5) [6](#task6) [7](#task7) [8](#task8)*
 
 [עוד על v-for](https://vuejs.org/v2/api/#v-for)
 

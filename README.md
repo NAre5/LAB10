@@ -17,7 +17,7 @@
 
 ## מטרה
 
-**המטרה שלכם בסוף התרגול זה לייצר עמוד Register ועמוד Login (כרגע נפרדים).**
+**המטרה שלכם בסוף התרגול היא לייצר עמוד Register ועמוד Login (כרגע נפרדים).**
 
 **הקבצים האלה הם הקבצים [register.html](task/register.html) ו [login.html](task/login.html) (שכרגע ריקים).**
 
@@ -44,17 +44,19 @@
 
 ```javascript
 new Vue({
-// options
-  el: "#app",// selector for template
+  // options
+  el: "#app" // selector for template
   // data: ,
   // methods: ,
   // ... ,
-})
+});
 ```
 
 </div>
 
-אפליקציית Vue יכולה להיות מאורגנת בצורת עץ מקונן שמכיל קומפוננטות אחרות של Vue.
+במידה ואנחנו מפרידים את הtemplate מהכתיבה של אובייקט ה Vue, יש לציין בפרמטר el את הselector (כמו בcss) שיציין איזה אלמנט הוא הroot של הtemplate (במקרה שלנו הוא יהיה אלמנט עם id=app).
+
+אפליקציית Vue יכולה להיות מאורגנת בצורת עץ מקונן שמכיל קומפוננטות אחרות של Vue (על קומפוננטות נדבר בהמשך הקורס),
 
 **_לדוגמא_** אפליקציית משימות יכולה להראות בצורה הזאת:
 
@@ -73,7 +75,7 @@ Root Instance
 
 </div>
 
-דוגמא לקובץ HTML שבו משולב אובייקט Vue:
+_**דוגמא**_ לקובץ HTML שבו משולב אובייקט Vue:
 
 <div dir="ltr" style="padding-left:15%;">
 
@@ -81,18 +83,22 @@ Root Instance
 <!DOCTYPE html>
 <html>
   <head>
-    <title>My first Vue app</title>
+    <title>
+      My first Vue app
+    </title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   </head>
 
   <body>
-    <div id="app"> <!-- The template -->
+    <div id="app">
+      <!-- The template root -->
       hello world vue
     </div>
 
     <script>
-      var app = new Vue({ // The Vue instance
-        el: "#app",
+      var app = new Vue({
+        // The Vue instance
+        el: "#app"
       });
     </script>
   </body>
@@ -101,15 +107,17 @@ Root Instance
 
 </div>
 
+**[קישור לדוגמאת הקוד הראשונה](codes/1_hello_world_vue.html)**
+
 ## <span id="task1" style="color:green;"> <-- משימה 1 --> </span>
+
 **בכל קובץ יש ליצור:**
-1. **תג שיכיל את הTemplate של האובייקט (שבו בעתיד ניצור form שיקבל מהמשתמש את המידע הנחוץ)**
+
+1. **אלמנט שיהיה הroot של הtemplate של האובייקט (שבו בעתיד ניצור form שיקבל מהמשתמש את המידע הנחוץ)**
+   
 2. **אובייקט Vue (שיכיל את הלוגיקה של הטופס)**
 
-*קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#task5) [6](#task6) [7](#task7) [8](#task8)*
-
-
-**[קישור לדוגמאת הקוד הראשונה](codes/2_hello_world_vue.html)**
+_קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#task5) [6](#task6) [7](#task7) [8](#task8)_
 
 ## פרמטרים של אובייקט Vue
 
@@ -145,12 +153,13 @@ data() {
 
 </div>
 
+**[קישור לדוגמאת הקוד השנייה](codes/2_vue_object_properties.html)**
+
 ## <span id="task2" style="color:green;"> <-- משימה 2 --> </span>
+
 **בכל קובץ יש להגדיר משתנים שיחזיקו לנו את קלטי המשתמש של הform (כמו שם המשתמש והסיסמא)**
 
-*קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#task5) [6](#task6) [7](#task7) [8](#task8)*
-
-**[קישור לדוגמאת הקוד השנייה](codes/3_vue_object_properties.html)**
+_קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#task5) [6](#task6) [7](#task7) [8](#task8)_
 
 - ## methods
 
@@ -159,7 +168,7 @@ data() {
 ```javascript
 methods: {
   plus: function () {
-    this.message += " and ";
+    this.message += " And ";
     console.log(message);
   }
 }
@@ -167,7 +176,7 @@ methods: {
 
 </div>
 
-כל הפונקציות שבתוך methods נוספים כפונקציות של האובייקט, והפנייה אליהם בתוך האובייקט היא דרך הפוינטר this.
+כל הפונקציות שבתוך methods נוספות כפונקציות של האובייקט, והפנייה אליהם בתוך האובייקט היא דרך הפוינטר this.
 
 <div dir="ltr" style="padding-left:15%;">
 
@@ -177,7 +186,8 @@ this.plus();
 
 </div>
 
-הפנייה לפונקציה מתוך התצוגה תעשה בצורה הבאה על ידי directive בשם [v-on](#v-on):
+הפנייה לפונקציה מתוך התצוגה תעשה תהיה מתוך expression שנרשום באחד הdirectives.\
+_**דוגמא**_ לכך היא על ידי directive בשם [v-on](#v-on) (שנדבר עליו בהמשך):
 
 <div dir="ltr" style="padding-left:15%;">
 
@@ -187,14 +197,16 @@ this.plus();
 
 </div>
 
+**[קישור לדוגמאת הקוד השנייה](codes/2_vue_object_properties.html)**
+
 ## <span id="task3" style="color:green;"> <-- משימה 3 --> </span>
+
 **בכל קובץ יש ליצור:**
+
 1. **תג form ובו תג input מסוג <input type="submit" value="Submit">**
 2. **פונקציה בתוך הפרמטר methods שתקרא בעת לחיצה על הכפתור**
 
-*קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#task5) [6](#task6) [7](#task7) [8](#task8)*
-
-**[קישור לדוגמאת הקוד השנייה](codes/3_vue_object_properties.html)**
+_קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#task5) [6](#task6) [7](#task7) [8](#task8)_
 
 - ## computed
 
@@ -251,7 +263,7 @@ computed: {
 
 > **<span style="color:green;">מתי נשתמש --> ##########ENTER_ANSWER_HERE###########</span>**
 
-**[קישור לדוגמאת הקוד השנייה](codes/3_vue_object_properties.html)**
+**[קישור לדוגמאת הקוד השנייה](codes/2_vue_object_properties.html)**
 
 - ## created (and) beforeDestroy
   במחזור החיים של אובייקט Vue, ישנם שני eventים שמעניינים אותנו:
@@ -264,14 +276,15 @@ computed: {
 >   &#09;  
 >   **<span style="color:green;">מתי נשתמש --> ניקוי נתונים שאנחנו לא צריכים מהזיכרון</span>**
 
-## <span id="task4" style="color:green;"> <-- משימה 4 --> </span>
-**בכל קובץ עליכם להדפיס לconsole  שהאובייקט עבור העמוד (register או login) נוצר**
-
-*קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#task5) [6](#task6) [7](#task7) [8](#task8)*
+**[קישור לדוגמאת הקוד השנייה - יש להוציא מהערה את הפרמטר created כדי לראות דוגמא](codes/2_vue_object_properties.html)**
 
 [link to life cycle image](#lifecycle)
 
-**[קישור לדוגמאת הקוד השנייה - יש להוציא מהערה את הפרמטר created כדי לראות דוגמא](codes/3_vue_object_properties.html)**
+## <span id="task4" style="color:green;"> <-- משימה 4 --> </span>
+
+**בכל קובץ עליכם להדפיס לconsole שהאובייקט עבור העמוד (register או login) נוצר**
+
+_קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#task5) [6](#task6) [7](#task7) [8](#task8)_
 
 ## directives
 
@@ -290,7 +303,7 @@ computed: {
 
 - ## <div id="v-on">v-on</div>
 
-מפשר להאזין לDOM events, ולהפעיל פעולה כשהevent קורה.
+מאפשר להאזין לDOM events, ולהפעיל פעולה כשהevent קורה.
 
 צורת הכתיבה תיהיה:
 
@@ -306,7 +319,7 @@ v-on:EventName="Function | Inline Statement | Object"
 
 </div>
 
-> טיפ: באנגלית קוראים לסימן @ = at, אז אפשר לזכרור את זה כ - at EventName
+> טיפ: באנגלית קוראים לסימן @ = at, אז אפשר לזכרור את זה כ - at EventName, do somthing
 
 <div dir="ltr" style="padding-left:15%;">
 
@@ -333,14 +346,18 @@ methods: {
 
 </div>
 
-## <span id="task5" style="color:green;"> <-- משימה 5 - *רשות* --> </span>
+**[קישור לדוגמאת הקוד השלישית](codes/3_data_bindings.html)**
+
+[עוד על v-on](https://vuejs.org/v2/api/#v-on)
+
+## <span id="task5" style="color:green;"> <-- משימה 5 - _רשות_ --> </span>
+
 > **תזכורת: כאשר יצרנו את הכפתור submit השתמשנו בv-on.**
 
 **כעת אתם יכולים להוריד את :v-on ולהשאיר רק את @ כמו שראינו בדוגמא למעלה**
 
-*קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#task5) [6](#task6) [7](#task7) [8](#task8)*
+_קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#task5) [6](#task6) [7](#task7) [8](#task8)_
 
-[עוד על v-on](https://vuejs.org/v2/api/#v-on)
 
 - ## v-bind
 
@@ -365,14 +382,14 @@ v-bind:AttributeName="expression"
 Inside template:
 
 ```html
-<button v-bind:disabled="buttonFlag">
-  Button
+<button v-bind:disabled="!message" @click="addMessage">
+  Add new message
 </button>
 
 או
 
-<button :disabled="buttonFlag">
-  Button
+<button :disabled="!message" @click="addMessage">
+  Add new message
 </button>
 ```
 
@@ -381,25 +398,40 @@ Inside Vue object:
 ```javascript
 data(){
   return {
-    buttonFlag: true
+    message: ""
   };
+},
+methods: {
+  addMessage(){
+    // Adds a new Message
+  }
 }
 ```
 
 </div>
 
+**[קישור לדוגמאת הקוד השלישית](codes/3_data_bindings.html)**
+
 [עוד על v-bind](https://vuejs.org/v2/api/#v-bind)
 
 - ## v-model
 
-יוצר two-way binding לאלמנטי input
+מאפשר לנו ליצור two-way binding בין משתנה של אובייקט Vue לאלמנטי input.
+
+אלמנטי input שקיימים בhtml הם:
+
+- input
+- select
+- textarea
+
+> מאחורי הקלעים, v-model הוא סוכר תחבירי המשתמש בv-on לevent של קלט עבור אלמנטיי input
 
 צורת הכתיבה תיהיה:
 
 <div dir="ltr" style="padding-left:15%;">
 
 ```
-v-bind:AttributeName="variable"
+v-model="variable"
 ```
 
 </div>
@@ -424,19 +456,22 @@ data(){
 
 </div>
 
-## <span id="task6" style="color:green;"> <-- משימה 6 --> </span>
-**בכל קובץ יש ליצור את כל התגים הדרושים בתוך תג הform ולקשר אותם למשתנים שהגדרתם ב[משימה 2](#task2)**
-
-*קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#task5) [6](#task6) [7](#task7) [8](#task8)*
+**[קישור לדוגמאת הקוד השלישית](codes/3_data_bindings.html)**
 
 [עוד על v-model](https://vuejs.org/v2/api/#v-model)
+
+## <span id="task6" style="color:green;"> <-- משימה 6 --> </span>
+
+**בכל קובץ יש ליצור את כל התגים הדרושים בתוך תג הform ולקשר אותם למשתנים שהגדרתם ב[משימה 2](#task2)**
+
+_קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#task5) [6](#task6) [7](#task7) [8](#task8)_
 
 - ## v-if (and) v-else (and) v-else-if
 
 מרנדר לפי תנאי אלמנט בהתבסס על אמיתות של ערך הביטוי שמקבל.\
 האלמנט והרכיבים הכלולים בו נוצרים ונהרסים בין שינויים של ערך הביטוי.
 
-v-else ו v-else-if בעלות **אותו הגיון כמו בשאר שפות תכנות** בכך שelse או else-if יופיע רק לאחר if. 
+v-else ו v-else-if בעלות **אותו הגיון כמו בשאר שפות תכנות** בכך שelse או else-if יופיע רק לאחר if.
 
 צורת הכתיבה תיהיה:
 
@@ -479,8 +514,16 @@ data(){
 
 </div>
 
+**[קישור לדוגמאת הקוד הרביעית](codes/4_conditions.html)**
+
+[עוד על v-if](https://vuejs.org/v2/api/#v-if)\
+[עוד על v-else](https://vuejs.org/v2/api/#v-else)\
+[העשרה: v-else-if](https://vuejs.org/v2/api/#v-else-if)
+
 ## <span id="task7" style="color:green;"> <-- משימה 7 --> </span>
+
 **בכל קובץ יש ליצור:**
+
 1. **משתנה של שגיאות (כרגע מסוג string)**
 
 2. **בפונקציה שמטפלת בsubmit בדיקות ששם המשתמש רשום כולו באותיות קטנות ואורך הסיסמא בין 3 ל6 תווים. במידה ובדיקה יצאה שגויה יש להוסיף אותה למשתנה השגיאות**
@@ -489,11 +532,7 @@ data(){
 
 4. **תג div שמציג הודעת הצלחה במקרה והsubmit קרה בלי שגיאות**
 
-*קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#task5) [6](#task6) [7](#task7) [8](#task8)*
-
-[עוד על v-if](https://vuejs.org/v2/api/#v-if)\
-[עוד על v-else](https://vuejs.org/v2/api/#v-else)\
-[העשרה: v-else-if](https://vuejs.org/v2/api/#v-else-if)
+_קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#task5) [6](#task6) [7](#task7) [8](#task8)_
 
 - ## v-for
 
@@ -555,19 +594,26 @@ data(){
 
 </div>
 
+**[קישור לדוגמאת הקוד החמישית](codes/5_loops.html)**
+
+[עוד על v-for](https://vuejs.org/v2/api/#v-for)
+
 ## <span id="task8" style="color:green;"> <-- משימה 8 --> </span>
+
 **בכל קובץ יש ליצור:**
+
 1. **תג שיכיל את הTemplate של האובייקט (שבו בעתיד ניצור form שיקבל מהמשתמש את המידע הנחוץ)**
 2. **אובייקט Vue (שיכיל את הלוגיקה של הטופס)**
 
-*קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#task5) [6](#task6) [7](#task7) [8](#task8)*
-
-[עוד על v-for](https://vuejs.org/v2/api/#v-for)
+_קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#task5) [6](#task6) [7](#task7) [8](#task8)_
 
 ## form in Vue
 
 איך מייצרים form בVue
 
+**[קישור לדוגמאת הקוד השישית](codes/6_form.html)**
+
+[מידע על שימוש בform ב Vue](https://vuejs.org/v2/guide/forms.html)
 
 &nbsp;
 &nbsp;

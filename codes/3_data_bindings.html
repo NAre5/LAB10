@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My first Vue app</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <button v-bind:disabled="flag" @click="handleClick">Click me!</button>
+      <button @click="flag = !flag">Toggle disabled</button>
+      <input v-model="message" placeholder="enter message..."/>
+      <pre>
+        flag= {{flag}}
+        message= {{message}}
+      </pre>
+    </div>
+
+    <script>
+      var app = new Vue({
+        el: "#app",
+        data() {
+          return {
+            flag: false,
+            message: ""
+          };
+        },
+        methods: {
+          handleClick: function () {
+            alert("clicked");
+          }
+        }
+      });
+    </script>
+  </body>
+</html>

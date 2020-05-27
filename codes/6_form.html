@@ -6,22 +6,17 @@
   </head>
   <body>
     <div id="app">
-      <a @click="handleClick">Click me!</a>
+      {{ message }}
     </div>
 
     <script>
       var app = new Vue({
         el: "#app",
-        data() {
-          return {
+        data(){
+          return{
             message: "Hello Vue!"
-          };
-        },
-        methods: {
-          handleClick: function () {
-            alert("test");
           }
-        }
+        },
       });
     </script>
   </body>

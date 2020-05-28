@@ -40,7 +40,7 @@
 
 ## אפליקציית Vue
 
-כאשר אנחנו רוצים ליצור _אפליקציית Vue_, היא חייבת להכיל **אובייקט Vue שיהיה הRoot**, על ידי:
+כאשר אנחנו רוצים ליצור _אפליקציית Vue_, היא חייבת להכיל **אובייקט Vue**, על ידי:
 
 <div id="new" dir="ltr" style="padding-left:15%;">
 
@@ -56,35 +56,37 @@ new Vue({
 
 </div>
 
-
-_**דוגמא**_ לקובץ HTML שבו משולב אובייקט Vue:
+לקובץ HTML שבו משולב אובייקט Vue יראה כך:
 
 <div dir="ltr" style="padding-left:15%;">
 
 ```html
-<!DOCTYPE html>
+<!DOCTYPE html> 
+<!-- The View -->
 <html>
   <head>
-    <title>
-      My first Vue app
-    </title>
     <script src="https://cdn.jsdelivr.net/npm/vue"></script>
   </head>
 
   <body>
-    <!-- The template -->
+    <!-- The Template -->
     <div id="app">
       hello world vue
     </div>
-
-    <script>
-      // The Vue instance
-      var app = new Vue({
-        el: "#app"
-      });
-    </script>
   </body>
 </html>
+
+<!-- The Logic -->
+<script>
+  // The Vue instance
+  var app = new Vue({
+    el: "#app"
+  });
+</script>
+
+<!-- The Style -->
+<style>
+</style>
 ```
 
 </div>
@@ -93,7 +95,11 @@ _**דוגמא**_ לקובץ HTML שבו משולב אובייקט Vue:
 
 ## <span id="task1" style="color:green;"> <-- משימה 1 --> </span>
 
-**בקובץ יש ליצור:**
+**בקובץ [register.html](task/register.html) יש ליצור את השלד של המסמך.**
+
+כמו בדוגמא מעל ראינו שהשל מורכב משלושה חלקים - 
+
+1. התצוגה - תחת תג HTML, שתייבא את Vue
 
 1. **אלמנט שיהיה הroot של הtemplate של האובייקט (שבו בעתיד ניצור form שיקבל מהמשתמש את המידע הנחוץ)**
 
@@ -299,8 +305,7 @@ _קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#ta
 - הvalue של הElement יהיה שווה לפרמטר של האובייקט
 - הElement יופיע רק כאשר ערך בוליאני (שיכול להתחשב בפרמטר של האובייקט) יהיה true
 
-
-- ## <div id="v-on">v-on</div>
+* ## <div id="v-on">v-on</div>
 
 מאפשר להאזין לDOM events, ולהפעיל פעולה כשהevent קורה.
 

@@ -133,6 +133,14 @@ data() {
 
 כל הפרמטרים שחוזרים מdata נוספים כפרמטרים של האובייקט, והפנייה אליהם בתוך האובייקט היא כמו במחלקה בjava - דרך הפוינטר this.
 
+<div dir="ltr" style="padding-left:15%;">
+
+```javascript
+this.message;
+```
+
+</div>
+
 כאשר הערכים של אותם פרמטרים משתנים, התצוגה תגיב ותתעדכן לפי הערכים החדשים.
 
 אחת האפשרויות לתצוגה של אותם ערכים ניתנת באמצעות שימוש בסוגריים מסולסלים ובתוכם הפרמטר:
@@ -149,7 +157,7 @@ data() {
 
 ## <span id="task2" style="color:green;"> <-- משימה 2 --> </span>
 
-**בקובץ [register.html](task/register.html) יש להגדיר משתנים שיחזיקו לנו את קלטי המשתמש של הform**
+**בקובץ [register.html](task/register.html) יש להגדיר משתנים שיחזיקו לנו את קלטי המשתמש של הform. את המשתנים האלה יש לרשום בתוך הdata כמו message בדוגמא למעלה.**
 
 <div dir="ltr"">
 
@@ -193,8 +201,8 @@ this.plus();
 
 </div>
 
-הפנייה לפונקציה מתוך התצוגה תעשה תהיה מתוך expression שנרשום באחד הdirectives.\
-_**דוגמא**_ לכך היא על ידי directive בשם [v-on](#v-on) (שנדבר עליו בהמשך):
+הפנייה לפונקציה מתוך התצוגה תהיה מתוך expression שנרשום באחד הdirectives.\
+_**דוגמא**_ לכך היא על ידי directive בשם [v-on](#v-on) שמטרתו תיהיה להפעיל את הפוקנציה אחרי הevent של click (שנדבר עליו בהמשך):
 
 <div dir="ltr" style="padding-left:15%;">
 
@@ -215,7 +223,7 @@ _**דוגמא**_ לכך היא על ידי directive בשם [v-on](#v-on) (שנ�
 <div dir="ltr" style="padding-left:15%;">
 
 ```html
-<form v-on:submit="FUNCTION_NAME">
+<form v-on:submit="handleRegister">
   ...
 </form>
 ```
@@ -225,10 +233,15 @@ _**דוגמא**_ לכך היא על ידי directive בשם [v-on](#v-on) (שנ�
 1. **אלמנט input מסוג <input type="submit" value="Submit">**
 2. **פונקציה בתוך הפרמטר methods שתקרא בעת לחיצה על הכפתור. אתם יכולים לאתחל את הפונקציה שתעשה alert למחרוזת מסוימת.**
 
-> **_תזכורות:_**
+> **_הערה:_**
 
-- שלוחצים על submit בform, הevent שיהיה זה submit של האלמנט form
-- מומלץ להשתמש ב `e.preventDefault();` כדי למנוע מהפעולה המקורית של הform להתבצע
+שלוחצים על submit בform, הevent שיופעל הוא submit של האלמנט form.\
+במקרה שלנו, הפונקציה handleRegister תופעל אך לאחר סיומה תופעל גם הפונקציה הדיפולטית של אלמנט הform.\
+בשביל למנוע את זה נוכל:
+
+- להשתמש בתוך handleRegister ב: `event.preventDefault();` 
+- לציין prevent לצד הפעולה: ```v-on:submit.prevent```
+
 
 _קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#task5) [6](#task6) [7](#task7)_
 
@@ -250,7 +263,19 @@ _קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#ta
 
 * ## <div id="v-on">v-on</div>
 
-מאפשר להאזין לDOM events, ולהפעיל פעולה כשהevent קורה.
+<div dir="ltr" style="padding-left:15%;">
+
+```html
+<button v-on:click="handleClick">
+  button
+</button>
+```
+
+</div>
+
+מאפשר לצרף לאלמנט פעולה שתקרא כאשר event קורה.
+
+> אותה פעולה נקראת event handler.
 
 צורת הכתיבה תיהיה:
 
@@ -306,6 +331,14 @@ methods: {
 _קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#task5) [6](#task6) [7](#task7)_
 
 - ## v-model
+
+<div dir="ltr" style="padding-left:15%;">
+
+```html
+<input v-model="message" />
+```
+
+</div>
 
 מאפשר לנו ליצור two-way binding בין משתנה של אובייקט Vue לאלמנטי input.
 
@@ -374,8 +407,23 @@ _קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#ta
 
 - ## v-if (and) v-else (and) v-else-if
 
-מרנדר לפי תנאי אלמנט בהתבסס על אמיתות של ערך הביטוי שמקבל.\
-האלמנט והרכיבים הכלולים בו נוצרים ונהרסים בין שינויים של ערך הביטוי.
+<div dir="ltr" style="padding-left:15%;">
+
+```html
+<div v-if="flag">
+  true
+</div>
+<div v-else>
+  false
+</div>
+```
+
+</div>
+
+מאפשר לנו להציג/להסתיר אלמנטים בהתבסס על ערך האמת של הקלט.
+
+כשאלמנט לא מוצג זה כי הוא **לא קיים**, לא כי הוא מוסתר על ידי עיצוב,\
+לכן, על פי ערך האמת של הקלט, האלמנט יווצר ויהרס.
 
 v-else ו v-else-if בעלות **אותו הגיון כמו בשאר שפות תכנות** בכך שelse או else-if יופיע רק לאחר if.
 
@@ -433,8 +481,8 @@ data(){
 1. **משתנה של שגיאות (מסוג מערך)**
 
 2. **בפונקציה שמטפלת בsubmit יש להוסיף בדיקות ובמידה ובדיקה יצאה שגויה יש להוסיף אותה למשתנה השגיאות.**\
-   **הבדיקות יהיו:**
-> - **שם משתמש יהיה באורך בין 3 ל- 8 תווים (בעבודה יש להוסיף בדיקת הכלה של אותיות בלבד)**
+    **הבדיקות יהיו:**
+   > - **שם משתמש יהיה באורך בין 3 ל- 8 תווים (בעבודה יש להוסיף בדיקת הכלה של אותיות בלבד)**
 
 > - **הסיסמה תהיה באורך של בין 5 ל- 10 תווים (בעבודה יש להוסיף בדיקת הכלה של לפחות מספר אחד ותו מיוחד אחד)**
 
@@ -446,9 +494,29 @@ _קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#ta
 
 - ## v-for
 
-מרנדר אלמנט מספר פעמים על פי קלט איטרטיבי.
+<div dir="ltr" style="padding-left:15%;">
 
-צורת הכתיבה חייבת להיות בצורה `alias in expression` , כדי לספק כינוי לאלמנט הנוכחי באיטרציה.
+```html
+<div v-for="message in messages">
+  {{ message }}
+</div>
+```
+
+</div>
+
+מאפשר לנו לשכפל אלמנט מספר פעמים על פי קלט איטרטיבי (במקרה שלנו messages).\
+בתוך כל אלמנט אנחנו יכולים לפנות למשתנה של האיטרציה (במקרה שלנו message).
+
+נוכל לרשום את זה בפסאודו קוד בצורה כזאת:
+
+<div dir="ltr" style="padding-left:15%;">
+
+```javascript
+for item in Iterable:
+  CreateDomElement(Element, item)
+```
+
+</div>
 
 צורת הכתיבה תיהיה:
 
@@ -460,7 +528,9 @@ v-for="alias in Array | Object | number | string | Iterable"
 
 </div>
 
-לחלופין, אפשר לציין כינוי לאינדקס (וגם למפתח אם עוברים על אובייקט):
+> צורת הכתיבה חייבת להיות בצורה `alias in expression` , כדי לספק כינוי לאלמנט הנוכחי באיטרציה.
+
+בנוסף, אפשר לציין כינוי לאינדקס (וגם למפתח אם עוברים על אובייקט):
 
 <div dir="ltr" style="padding-left:15%;">
 
@@ -504,11 +574,12 @@ data(){
 
 </div>
 
-כדי שVue יוכל לעקוב אחרי הזהות של כל אלמנט שנוצר מ v-for, ולמרות שינויים שיכולים להיות במשתנה שאנחנו רצים עליו כמו סידור מחדש או מחיקה של איבר מהאמצע, אם נתן לכל אלמנט **key ייחודי**, Vue ידע לא ליצור אותם שוב פעם
+כברירת מחדל vue מנסה לעשות מינימום שינויים בDom.\
+אם סדר האלמנטים שיצרנו חשוב, ואנו רוצים כי בעת שינוי ברשימה/אובייקט גם התצוגה תתעדכן, עלינו להוסיף לכל אלמנט **key (מזהה) ייחודי**.
 
-את הkey נקח מתוך האיברים של המשתנה.
+את הkey נקח מתוך הפרמטרים של המשתנה.
 
-לדוגמא, אם נקח את הדוגמא ממקודם, מה שיכול להיות ייחודי עבור הודעה היא הזמן שבו היא נשלחה (הסדר יכול להשתנות כי יכולה להיות אפשרות למחוק הודעות).\
+***לדוגמא***, אם נקח את הדוגמא ממקודם, מה שיכול להיות ייחודי עבור הודעה היא הזמן שבו היא נשלחה (הסדר יכול להשתנות כי יכולה להיות אפשרות למחוק הודעות).\
 לכן אם נשמור את ההודעות בצורה הבאה:
 
 <div dir="ltr" style="padding-left:15%;">
@@ -610,137 +681,3 @@ this.fullName = "John Doe";
 </div>
 firstName ו lastName יתעדכנו ב John ו Doe בהתאמה
 
-- ## <div id="lifecycle">lifecycle image</div>
-
-<img src="./lifecycle.png">
-
-- ## computed
-
-בדומה ל#c שבו אנחנו יכולים ליצור property שייצר לנו משתנה שלו מוגזר getter ו setter:
-
-<div dir="ltr" style="padding-left:15%;">
-
-```c#
-// c# code
-class Mail
-{
-  //Data members:
-  private string message;
-
-  //Properties:
-  public string LowerCase_Message
-  {
-    get { return message.ToLower(); }
-    set { message = value; }
-  }
-}
-```
-
-</div>
-
-אנחנו יכולים ליצור משתנים כמו בdata אבל עם getter ו setter.\
-**הדיפולט הוא משתנה שמאפשר רק get כמו עבור lowerCase_message:**
-
-<div dir="ltr" style="padding-left:15%;">
-
-```javascript
-computed: {
-  lowerCase_message: function(){
-    return this.message.toLowerCase();
-  }
-}
-```
-
-</div>
-
-> [קישור להרחבה עבור משתנה עם setter](#computed_with_setter)
-
-כל המשתנים שהגדרנו בתוך computed נוספים לתוך האובייקט, והפנייה אליהם בתוך הקוד היא דרך הפוינטר this.
-
-אחת האפשרויות לתצוגה של אותם ערכים ניתנת באמצעות שימוש בסוגריים מסולסלים ובתוכם הפרמטר:
-
-<div dir="ltr" style="padding-left:15%;">
-
-```html
-{{ lowerCase_message }}
-```
-
-</div>
-
-**[קישור לדוגמאת הקוד השנייה](examples/2_vue_object_properties.html)**
-
-- ## created (and) beforeDestroy
-  במחזור החיים של אובייקט Vue, ישנם שני eventים שמעניינים אותנו:
-
-> - **created:** מסמל את הרגע בו האובייקט נוצר ואנחנו יכולים להריץ קוד
->   &#09;  
->   **<span style="color:green;">מתי נשתמש --> שליחת בקשה לשרת והשמת התוצאה למשתנה של האובייקט ברגע שהיא חוזרת</span>**
-
-> - **beforeDestroy:** מסמל את הרגע לפני שהאובייקט נהרס ומאפשר לנו להריץ קוד
->   &#09;  
->   **<span style="color:green;">מתי נשתמש --> ניקוי נתונים שאנחנו לא צריכים מהזיכרון</span>**
-
-**[קישור לדוגמאת הקוד השנייה - יש להוציא מהערה את הפרמטר created כדי לראות דוגמא](examples/2_vue_object_properties.html)**
-
-[link to life cycle image](#lifecycle)
-
-**בקובץ עליכם להדפיס לconsole שהאובייקט עבור העמוד (register או login) נוצר**
-
-_קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#task5) [6](#task6) [7](#task7)_
-
-- ## v-bind
-
-מאפשר לנו ליצור one-way binding בין משתנה של אובייקט Vue ל attribute
-
-צורת הכתיבה תיהיה:
-
-<div dir="ltr" style="padding-left:15%;">
-
-```
-v-bind:AttributeName="expression"
-
-או
-
-:AttributeName="expression"
-```
-
-</div>
-
-<div dir="ltr" style="padding-left:15%;">
-
-Inside template:
-
-```html
-<button v-bind:disabled="!message" @click="addMessage">
-  Add new message
-</button>
-
-או
-
-<button :disabled="!message" @click="addMessage">
-  Add new message
-</button>
-```
-
-Inside Vue object:
-
-```javascript
-data(){
-  return {
-    message: ""
-  };
-},
-methods: {
-  addMessage(){
-    // Adds a new Message
-  }
-}
-```
-
-</div>
-
-**[קישור לדוגמאת הקוד השלישית](examples/3_data_bindings.html)**
-
-[עוד על v-bind](https://vuejs.org/v2/api/#v-bind)
-
-</div>

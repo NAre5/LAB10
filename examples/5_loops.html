@@ -5,7 +5,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   </head>
   <body>
-    <div id="app">
+    <div id="template">
       <h1>Vue Chat</h1>
       messages:
       <ol>
@@ -23,12 +23,7 @@
           Yossi
         </option>
       </select>
-      <input
-        id="newMessage"
-        v-model="newMessage"
-        @keyup.enter="addToList"
-        placeholder="Please enter message..."
-      />
+      <input id="newMessage" v-model="newMessage" @keyup.enter="addToList" placeholder="Please enter message..." />
       <button @click="addToList">Add message</button>
       <div v-if="error" v-html="error" style="color: tomato;"></div>
       <hr>
@@ -44,16 +39,16 @@
           </button>
           <!-- <transition > asd </transition> -->
         </li>
-      <ul/>
-      <button v-if="notifications.length" @click="shuffleN">shuffle</button>
+        <ul />
+        <button v-if="notifications.length" @click="shuffleN">shuffle</button>
     </div>
 
     <script>
       function shuffle(array) {
         array.sort(() => Math.random() - 0.5);
       }
-      var app = new Vue({
-        el: "#app",
+      var vm = new Vue({
+        el: "#template",
         data() {
           return {
             messages: [

@@ -46,23 +46,40 @@
 
 ## אובייקט Vue
 
-כאשר אנחנו רוצים ליצור  **אובייקט Vue** חדש, נרשום:
+כאשר אנחנו רוצים ליצור  **אובייקט Vue** חדש, נרשום בקוד javascript:
 
 <div id="new" dir="ltr" style="padding-left:15%;">
 
 ```javascript
-new Vue({
+var vm = new Vue({
   // options
-  el: "#app" // selector for template
-  // data: ,
-  // methods: ,
-  // ... ,
+});
+```
+</div>
+
+כאשר הoptions הם:
+<div id="new" dir="ltr" style="padding-left:15%;">
+
+```javascript
+var vm = new Vue({
+  el: "#template" // selector for template
+  data(){
+    return{
+      // variables
+    }
+  } ,
+  methods: {
+    // methods
+  },
+  // etc... ,
 });
 ```
 
 </div>
 
-קוד זה הוא קוד בjavascript שכולל selector לelement בHTML כך שאותו אלמנט יהיה הtemplate של אובייקט הVue שלנו.
+הoptions שלנו יכלול selector לelement בHTML כך שאותו אלמנט יהיה הtemplate של אובייקט הVue שלנו.
+
+לאחר היצירה של האובייקט, האובייקט יהיה מקושר לtemplate שהגדרנו לו ויוכל להאזין וליצור שינויים בDOM של אותו template.
 
 
 
@@ -80,7 +97,7 @@ new Vue({
 
   <body>
     <!-- The Template -->
-    <div id="app">
+    <div id="template">
       hello world vue
     </div>
   </body>
@@ -89,8 +106,8 @@ new Vue({
 <!-- The Logic -->
 <script>
   // The Vue instance
-  var app = new Vue({
-    el: "#app"
+  var vm = new Vue({
+    el: "#template"
   });
 </script>
 

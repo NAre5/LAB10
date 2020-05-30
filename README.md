@@ -239,15 +239,14 @@ _**דוגמא**_ לכך היא על ידי directive בשם [v-on](#v-on) שמט
 במקרה שלנו, הפונקציה handleRegister תופעל אך לאחר סיומה תופעל גם הפונקציה הדיפולטית של אלמנט הform.\
 בשביל למנוע את זה נוכל:
 
-- להשתמש בתוך handleRegister ב: `event.preventDefault();` 
-- לציין prevent לצד הפעולה: ```v-on:submit.prevent```
-
+- להשתמש בתוך handleRegister ב: `event.preventDefault();`
+- לציין prevent לצד הפעולה: `v-on:submit.prevent`
 
 _קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#task5) [6](#task6) [7](#task7)_
 
 ## directives
 
-סימונים על אלמנט DOM שאומרים לספרייה של Vue לחבר התנהגות מסוימת לאותו אלמנט.
+**סימונים על אלמנט DOM שאומרים לספרייה של Vue לחבר התנהגות מסוימת לאותו אלמנט.**
 
 לרוב הסימונים האלה בVue יתחילו ב **-v**.
 
@@ -265,15 +264,24 @@ _קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#ta
 
 <div dir="ltr" style="padding-left:15%;">
 
+Inside template:
 ```html
 <button v-on:click="handleClick">
-  button
+  Click me!
 </button>
 ```
 
+Inside Vue Object:
+```javascript
+methods: {
+  handleClick: function() {
+    alert('Clicked');
+  }
+}
+```
 </div>
 
-מאפשר לצרף לאלמנט פעולה שתקרא כאשר event קורה.
+**מאפשר לצרף לאלמנט פעולה שתקרא כאשר event קורה.**
 
 > אותה פעולה נקראת event handler.
 
@@ -283,40 +291,21 @@ _קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#ta
 
 ```
 v-on:EventName="Function | Inline Statement | Object"
-
-או
-
-@EventName="Function | Inline Statement | Object"
 ```
 
+</div>
+
+בצורה מקוצרת במקום לרשום **:v-on** , נרשום **@**
+
+<div dir="ltr" style="padding-left:15%;">
+
+```html
+<a @click="handleClick">Click me!</a>
+```
 </div>
 
 > טיפ: באנגלית קוראים לסימן @ = at, אז אפשר לזכרור את זה כ - at EventName, do somthing
 
-<div dir="ltr" style="padding-left:15%;">
-
-Inside template:
-
-```html
-<a v-on:click="handleClick">Click me!</a>
-
-או
-
-<a @click="handleClick">Click me!</a>
-```
-
-Inside Vue object:
-
-```javascript
-methods: {
-  handleClick: function() {
-    alert('Clicked');
-  }
-}
-
-```
-
-</div>
 
 **[קישור לדוגמאת הקוד השלישית](examples/3_data_bindings.html)**
 
@@ -334,13 +323,22 @@ _קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#ta
 
 <div dir="ltr" style="padding-left:15%;">
 
+Inside template:
 ```html
 <input v-model="message" />
 ```
 
+Inside Vue Object:
+```javascript
+data(){
+  return {
+    message: ""
+  };
+}
+```
 </div>
 
-מאפשר לנו ליצור two-way binding בין משתנה של אובייקט Vue לאלמנטי input.
+**מאפשר לנו ליצור two-way binding בין משתנה של אובייקט Vue לאלמנטי input.**
 
 אלמנטי input שקיימים בhtml הם:
 
@@ -356,26 +354,6 @@ _קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#ta
 
 ```
 v-model="variable"
-```
-
-</div>
-
-<div dir="ltr" style="padding-left:15%;">
-
-Inside template:
-
-```html
-<input v-model="message" />
-```
-
-Inside Vue object:
-
-```javascript
-data(){
-  return {
-    message: ""
-  };
-}
 ```
 
 </div>
@@ -409,23 +387,37 @@ _קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#ta
 
 <div dir="ltr" style="padding-left:15%;">
 
+Inside template:
 ```html
 <div v-if="flag">
-  true
+  Good
+</div>
+<div v-if="flag2">
+  Maybe Good
 </div>
 <div v-else>
-  false
+  Not Good
 </div>
 ```
 
+Inside Vue Object:
+```javascript
+data(){
+  return {
+    flag: false,
+    flag2: true
+  };
+}
+```
 </div>
 
-מאפשר לנו להציג/להסתיר אלמנטים בהתבסס על ערך האמת של הקלט.
+**מאפשר לנו להציג ולהסתיר אלמנטים בהתבסס על ערך האמת של תנאי בוליאני.**
 
-כשאלמנט לא מוצג זה כי הוא **לא קיים**, לא כי הוא מוסתר על ידי עיצוב,\
-לכן, על פי ערך האמת של הקלט, האלמנט יווצר ויהרס.
+האלמנטים יווצרו וימחקו מהDom בהתאם לתנאי.
 
-v-else ו v-else-if בעלות **אותו הגיון כמו בשאר שפות תכנות** בכך שelse או else-if יופיע רק לאחר if.
+**תהליך זה נעשה באופן דינאמי בהתאם לתנאי**, כלומר, ברגע שתוצאת התנאי משתנה, האלמנט ימחק/יתווסף לDom.
+
+> v-else ו v-else-if בעלות אותו הגיון כמו בשאר שפות תכנות בכך שelse או else-if יופיע רק לאחר if.
 
 צורת הכתיבה תיהיה:
 
@@ -439,40 +431,11 @@ v-else
 
 </div>
 
-<div dir="ltr" style="padding-left:15%;">
-
-Inside template:
-
-```html
-<div v-if="flag">
-  ***somthing for if***
-</div>
-<div v-else-if="flag2">
-  ***somthing for else-if***
-</div>
-<div v-else>
-  ***somthing for else***
-</div>
-```
-
-Inside Vue object:
-
-```javascript
-data(){
-  return {
-    flag: false,
-    flag2: true
-  };
-}
-```
-
-</div>
-
 **[קישור לדוגמאת הקוד הרביעית](examples/4_conditions.html)**
 
 [עוד על v-if](https://vuejs.org/v2/api/#v-if)\
 [עוד על v-else](https://vuejs.org/v2/api/#v-else)\
-[העשרה: v-else-if](https://vuejs.org/v2/api/#v-else-if)
+[עוד על v-else-if](https://vuejs.org/v2/api/#v-else-if)
 
 ## <span id="task6" style="color:green;"> <-- משימה 6 --> </span>
 
@@ -496,16 +459,31 @@ _קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#ta
 
 <div dir="ltr" style="padding-left:15%;">
 
+inside template:
+
 ```html
-<div v-for="message in messages">
-  {{ message }}
+<div v-for="m in messages">
+  {{ m }}
 </div>
+```
+
+inside Vue Object:
+
+```javascript
+data(){
+  return {
+    messages: ["a", "b", "c"]
+  };
+}
 ```
 
 </div>
 
-מאפשר לנו לשכפל אלמנט מספר פעמים על פי קלט איטרטיבי (במקרה שלנו messages).\
-בתוך כל אלמנט אנחנו יכולים לפנות למשתנה של האיטרציה (במקרה שלנו message).
+מאפשר לנו לשכפל אלמנט מספר פעמים על פי קלט איטרטיבי (במקרה שלנו messages) כך שהtemplate שלהם זהה, אך הdata שלהם משתנה (לכל אחד message יהיה אחר)
+
+<!-- בתוך כל אלמנט אנחנו יכולים לפנות למשתנה של האיטרציה (במקרה שלנו message). -->
+
+לדוגמא, אם נרצה להציג רשימה, איך צורך לכתוב עבור כל אלמנט ברשימה תגיות \<li\>, נוכל לעשות זאת בקלות על ידי ריצה על איברי הרשימה ושימוש בv-for
 
 נוכל לרשום את זה בפסאודו קוד בצורה כזאת:
 
@@ -558,7 +536,7 @@ Inside template:
 </ol>
 ```
 
-Inside Vue object:
+Inside Vue Object:
 
 ```javascript
 data(){
@@ -579,12 +557,12 @@ data(){
 
 את הkey נקח מתוך הפרמטרים של המשתנה.
 
-***לדוגמא***, אם נקח את הדוגמא ממקודם, מה שיכול להיות ייחודי עבור הודעה היא הזמן שבו היא נשלחה (הסדר יכול להשתנות כי יכולה להיות אפשרות למחוק הודעות).\
+**_לדוגמא_**, אם נקח את הדוגמא ממקודם, מה שיכול להיות ייחודי עבור הודעה היא הזמן שבו היא נשלחה (הסדר יכול להשתנות כי יכולה להיות אפשרות למחוק הודעות).\
 לכן אם נשמור את ההודעות בצורה הבאה:
 
 <div dir="ltr" style="padding-left:15%;">
 
-Inside Vue object:
+Inside Vue Object:
 
 ```javascript
 data(){
@@ -680,4 +658,3 @@ this.fullName = "John Doe";
 
 </div>
 firstName ו lastName יתעדכנו ב John ו Doe בהתאמה
-

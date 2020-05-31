@@ -23,7 +23,7 @@
 
 **לעומת עבודה 2**, שבה יצרתם עמוד Register באמצעות שימוש בjavascript בסיסי ובספרייה JQuery, כעת אנחנו ניעזר ביכולת של Vue.js בנוסף לjavascript הבסיסי.
 
-**Vue.js (או בקיצור - Vue) היא ספריית javascript מתקדמת שעוזרת לנו ליצור אתרים דינאמים בצד הלקוח.**
+**Vue.js (או בקיצור - Vue) היא ספריית javascript מתקדמת שעוזרת לנו ליצור SPA (Single Page Application) בצד הלקוח.**
 
 **הקובץ שאיתו תעבדו הוא [register.html](task/register.html) שכרגע ריק.**
 

@@ -413,7 +413,7 @@ Inside template:
 <div v-if="flag">
   Good
 </div>
-<div v-if="flag2">
+<div v-if-else="flag2">
   Maybe Good
 </div>
 <div v-else>

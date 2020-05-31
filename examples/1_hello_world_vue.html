@@ -7,17 +7,20 @@
 
   <body>
     <div id="template">
-      hello world vue {{ message }}
+      hello world vue
+      <!-- <div>
+        {{ message }}
+      </div> -->
     </div>
 
     <script>
       var vm = new Vue({
         el: "#template",
-        data() {
-          return {
-            message: "hello world"
-          };
-        }
+        // data() {
+        //   return {
+        //     message: "hello world"
+        //   };
+        // }
       });
     </script>
   </body>

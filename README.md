@@ -205,7 +205,7 @@ _קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#ta
 methods: {
   plus: function () {
     this.message += " And ";
-    console.log(message);
+    console.log(this.message);
   }
 }
 ```

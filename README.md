@@ -46,7 +46,7 @@
 
 ## אובייקט Vue
 
-כאשר אנחנו רוצים ליצור  **אובייקט Vue** חדש, נרשום בקוד javascript:
+כאשר אנחנו רוצים ליצור **אובייקט Vue** חדש, נרשום בקוד javascript:
 
 <div id="new" dir="ltr" style="padding-left:15%;">
 
@@ -55,9 +55,11 @@ var vm = new Vue({
   // options
 });
 ```
+
 </div>
 
 כאשר הoptions הם:
+
 <div id="new" dir="ltr" style="padding-left:15%;">
 
 ```javascript
@@ -80,8 +82,6 @@ var vm = new Vue({
 הoptions שלנו יכלול selector לelement בHTML כך שאותו אלמנט יהיה הtemplate של אובייקט הVue שלנו.
 
 לאחר היצירה של האובייקט, האובייקט יהיה מקושר לtemplate שהגדרנו לו ויוכל להאזין וליצור שינויים בDOM של אותו template.
-
-
 
 קובץ הHTML שבו משולב אובייקט הVue יראה כך:
 
@@ -251,8 +251,8 @@ _**דוגמא**_ לכך היא על ידי directive בשם [v-on](#v-on) שמט
 
 </div>
 
-1. **אלמנט input מסוג <input type="submit" value="Submit">**
-2. **פונקציה בתוך הפרמטר methods שתקרא בעת לחיצה על הכפתור. אתם יכולים לאתחל את הפונקציה שתעשה alert למחרוזת מסוימת.**
+2. **אלמנט input מסוג <input type="submit" value="Submit">**
+3. **פונקציה בתוך הפרמטר methods שתקרא בעת לחיצה על הכפתור. אתם יכולים לאתחל את הפונקציה שתעשה alert למחרוזת מסוימת.**
 
 > **_הערה:_**
 
@@ -286,6 +286,7 @@ _קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#ta
 <div dir="ltr" style="padding-left:15%;">
 
 Inside template:
+
 ```html
 <button v-on:click="handleClick">
   Click me!
@@ -293,6 +294,7 @@ Inside template:
 ```
 
 Inside Vue Object:
+
 ```javascript
 methods: {
   handleClick: function() {
@@ -300,6 +302,7 @@ methods: {
   }
 }
 ```
+
 </div>
 
 **מאפשר לצרף לאלמנט פעולה שתופעל כאשר event קורה.**
@@ -323,10 +326,10 @@ v-on:EventName="Function | Inline Statement | Object"
 ```html
 <a @click="handleClick">Click me!</a>
 ```
+
 </div>
 
 > טיפ: באנגלית קוראים לסימן @ = at, אז אפשר לזכרור את זה כ - at EventName, do somthing
-
 
 **[קישור לדוגמאת הקוד השלישית](examples/3_data_bindings.html)**
 
@@ -345,11 +348,13 @@ _קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#ta
 <div dir="ltr" style="padding-left:15%;">
 
 Inside template:
+
 ```html
 <input v-model="message" />
 ```
 
 Inside Vue Object:
+
 ```javascript
 data(){
   return {
@@ -357,6 +362,7 @@ data(){
   };
 }
 ```
+
 </div>
 
 **מאפשר לנו ליצור two-way binding בין משתנה של אובייקט Vue לאלמנטי input.**
@@ -409,11 +415,12 @@ _קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#ta
 <div dir="ltr" style="padding-left:15%;">
 
 Inside template:
+
 ```html
 <div v-if="flag">
   Good
 </div>
-<div v-if-else="flag2">
+<div v-else-if="flag2">
   Maybe Good
 </div>
 <div v-else>
@@ -422,6 +429,7 @@ Inside template:
 ```
 
 Inside Vue Object:
+
 ```javascript
 data(){
   return {
@@ -430,6 +438,7 @@ data(){
   };
 }
 ```
+
 </div>
 
 **מאפשר לנו להציג ולהסתיר אלמנטים בהתבסס על ערך האמת של תנאי בוליאני.**
@@ -466,13 +475,14 @@ v-else
 
 2. **בפונקציה שמטפלת בsubmit יש להוסיף בדיקות ובמידה ובדיקה יצאה שגויה יש להוסיף אותה למשתנה השגיאות.**\
     **הבדיקות יהיו:**
+
    > - **שם משתמש יהיה באורך בין 3 ל- 8 תווים (בעבודה יש להוסיף בדיקת הכלה של אותיות בלבד)**
 
-> - **הסיסמה תהיה באורך של בין 5 ל- 10 תווים (בעבודה יש להוסיף בדיקת הכלה של לפחות מספר אחד ותו מיוחד אחד)**
+   > - **הסיסמה תהיה באורך של בין 5 ל- 10 תווים (בעבודה יש להוסיף בדיקת הכלה של לפחות מספר אחד ותו מיוחד אחד)**
 
-1. **תג div שמציג את השגיאות אם הsubmit לא עבר בהצלחה ונתקל בשגיאות**
+3. **תג div שמציג את השגיאות אם הsubmit לא עבר בהצלחה ונתקל בשגיאות**
 
-2. **תג div שמציג הודעת הצלחה - "ההרשמה האחרונה שלך עברה בהצלחה" במקרה והsubmit קרה בלי שגיאות**
+4. **תג div שמציג הודעת הצלחה - "ההרשמה האחרונה שלך עברה בהצלחה" במקרה והsubmit קרה בלי שגיאות**
 
 _קישור למשימה [1](#task1) [2](#task2) [3](#task3) [4](#task4) [5](#task5) [6](#task6) [7](#task7)_
 
